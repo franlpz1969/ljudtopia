@@ -1,0 +1,976 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proyectos de Reforma | ARQUESTUDIO</title>
+    <style>
+        /* Variables globales */
+        :root {
+            --color-primary: #4a6d8c;
+            --color-secondary: #f9f9f9;
+            --color-accent: #e8c547;
+            --color-text: #333333;
+            --color-light: #ffffff;
+            --font-primary: 'Raleway', sans-serif;
+            --font-secondary: 'Montserrat', sans-serif;
+            --shadow: 0 5px 15px rgba(0,0,0,0.08);
+            --transition: all 0.3s ease;
+        }
+
+        /* Reset y estilos base */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-primary);
+            color: var(--color-text);
+            line-height: 1.6;
+            background-color: var(--color-light);
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, h5 {
+            font-family: var(--font-secondary);
+            font-weight: 600;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+        }
+
+        h2 {
+            font-size: 2rem;
+            color: var(--color-primary);
+        }
+
+        h3 {
+            font-size: 1.5rem;
+        }
+
+        p {
+            margin-bottom: 1rem;
+        }
+
+        a {
+            color: var(--color-primary);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        a:hover {
+            color: var(--color-accent);
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .btn {
+            display: inline-block;
+            background: var(--color-primary);
+            color: var(--color-light);
+            padding: 12px 24px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: var(--transition);
+            font-weight: 500;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+        }
+
+        .btn:hover {
+            background: var(--color-accent);
+            color: var(--color-text);
+            transform: translateY(-3px);
+            box-shadow: var(--shadow);
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--color-primary);
+            color: var(--color-primary);
+        }
+
+        .btn-outline:hover {
+            background: var(--color-primary);
+            color: var(--color-light);
+        }
+
+        section {
+            padding: 5rem 0;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        /* Header */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background-color: rgba(255, 255, 255, 0.95);
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--color-primary);
+            display: flex;
+            align-items: center;
+        }
+
+        .logo span {
+            color: var(--color-accent);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin-left: 2rem;
+        }
+
+        .nav-links a {
+            color: var(--color-text);
+            font-weight: 500;
+            font-size: 1rem;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--color-accent);
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-links a:hover {
+            color: var(--color-primary);
+        }
+
+        .burger {
+            display: none;
+            cursor: pointer;
+        }
+
+        .burger div {
+            width: 25px;
+            height: 3px;
+            margin: 5px;
+            background-color: var(--color-text);
+            transition: var(--transition);
+        }
+
+        /* Page Header */
+        .page-header {
+            background-color: var(--color-primary);
+            color: var(--color-light);
+            padding: 8rem 0 4rem;
+            margin-bottom: 4rem;
+        }
+
+        .page-header h1 {
+            margin-bottom: 1rem;
+        }
+
+        .breadcrumbs {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .breadcrumbs a {
+            color: rgba(255, 255, 255, 0.8);
+            margin-right: 0.5rem;
+        }
+
+        .breadcrumbs a:hover {
+            color: var(--color-light);
+        }
+
+        .breadcrumbs span {
+            margin-right: 0.5rem;
+        }
+
+        /* Service Details */
+        .service-details {
+            margin-bottom: 4rem;
+        }
+
+        .service-image {
+            margin-bottom: 2rem;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+
+        .service-description {
+            margin-bottom: 3rem;
+        }
+
+        .service-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 3rem;
+        }
+
+        .feature-card {
+            background-color: var(--color-secondary);
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+
+        .feature-icon {
+            font-size: 2.5rem;
+            color: var(--color-primary);
+            margin-bottom: 1rem;
+        }
+
+        .feature-title {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+        }
+
+        /* Process */
+        .process {
+            background-color: var(--color-secondary);
+            padding: 5rem 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-title h2 {
+            display: inline-block;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background-color: var(--color-accent);
+        }
+
+        .process-steps {
+            position: relative;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .process-steps::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 2px;
+            height: 100%;
+            background-color: var(--color-accent);
+        }
+
+        .step {
+            position: relative;
+            margin-bottom: 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .step:last-child {
+            margin-bottom: 0;
+        }
+
+        .step-content {
+            width: 45%;
+            background-color: var(--color-light);
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+            position: relative;
+        }
+
+        .step:nth-child(odd) .step-content {
+            margin-left: auto;
+        }
+
+        .step-number {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 50px;
+            height: 50px;
+            background-color: var(--color-accent);
+            color: var(--color-text);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: 700;
+            font-size: 1.2rem;
+            z-index: 1;
+        }
+
+        .step:nth-child(odd) .step-content::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: -10px;
+            transform: translateY(-50%) rotate(45deg);
+            width: 20px;
+            height: 20px;
+            background-color: var(--color-light);
+        }
+
+        .step:nth-child(even) .step-content::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            right: -10px;
+            transform: translateY(-50%) rotate(45deg);
+            width: 20px;
+            height: 20px;
+            background-color: var(--color-light);
+        }
+
+        /* Projects */
+        .projects {
+            padding: 5rem 0;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 3rem;
+        }
+
+        .project-card {
+            position: relative;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+
+        .project-img {
+            height: 250px;
+        }
+
+        .project-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .project-card:hover .project-img img {
+            transform: scale(1.1);
+        }
+
+        .project-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            padding: 20px;
+            background: linear-gradient(
+                to top,
+                rgba(0, 0, 0, 0.8),
+                rgba(0, 0, 0, 0)
+            );
+            color: var(--color-light);
+            transition: var(--transition);
+        }
+
+        .project-title {
+            font-size: 1.2rem;
+            margin-bottom: 5px;
+        }
+
+        .project-category {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        /* CTA Section */
+        .cta {
+            background-color: var(--color-primary);
+            color: var(--color-light);
+            text-align: center;
+            padding: 5rem 0;
+        }
+
+        .cta h2 {
+            color: var(--color-light);
+            margin-bottom: 1.5rem;
+        }
+
+        .cta p {
+            max-width: 700px;
+            margin: 0 auto 2rem;
+            opacity: 0.9;
+        }
+
+        .cta .btn {
+            background: var(--color-accent);
+            color: var(--color-text);
+        }
+
+        .cta .btn:hover {
+            background: var(--color-light);
+        }
+
+        /* FAQ */
+        .faq {
+            padding: 5rem 0;
+            background-color: var(--color-secondary);
+        }
+
+        .accordion {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .accordion-item {
+            margin-bottom: 20px;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+
+        .accordion-header {
+            background-color: var(--color-light);
+            padding: 20px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: var(--transition);
+        }
+
+        .accordion-header h3 {
+            margin: 0;
+            font-size: 1.2rem;
+        }
+
+        .accordion-header:hover {
+            background-color: rgba(74, 109, 140, 0.05);
+        }
+
+        .accordion-content {
+            background-color: var(--color-light);
+            padding: 0 20px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease, padding 0.3s ease;
+        }
+
+        .accordion-content.active {
+            padding: 20px;
+            max-height: 500px;
+        }
+
+        .accordion-icon {
+            width: 20px;
+            height: 20px;
+            position: relative;
+        }
+
+        .accordion-icon::before,
+        .accordion-icon::after {
+            content: '';
+            position: absolute;
+            background-color: var(--color-primary);
+            transition: var(--transition);
+        }
+
+        .accordion-icon::before {
+            top: 9px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+        }
+
+        .accordion-icon::after {
+            top: 0;
+            left: 9px;
+            width: 2px;
+            height: 100%;
+        }
+
+        .accordion-header.active .accordion-icon::after {
+            transform: rotate(90deg);
+            opacity: 0;
+        }
+
+        /* Contact Banner */
+        .contact-banner {
+            background-color: var(--color-accent);
+            padding: 3rem 0;
+            text-align: center;
+        }
+
+        .contact-banner h2 {
+            color: var(--color-text);
+            margin-bottom: 1rem;
+        }
+
+        .contact-banner p {
+            max-width: 600px;
+            margin: 0 auto 1.5rem;
+        }
+
+        .contact-banner .btn {
+            background-color: var(--color-primary);
+        }
+
+        .contact-banner .btn:hover {
+            background-color: var(--color-light);
+            color: var(--color-text);
+        }
+
+        /* Footer */
+        footer {
+            background-color: #2c3e50;
+            color: #ecf0f1;
+            padding: 4rem 0 2rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        .footer-logo {
+            font-size: 1.5rem;
+            color: var(--color-light);
+            margin-bottom: 15px;
+            display: inline-block;
+        }
+
+        .footer-about p {
+            margin-bottom: 20px;
+            color: #bdc3c7;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.1);
+            color: var(--color-light);
+            transition: var(--transition);
+        }
+
+        .social-links a:hover {
+            background-color: var(--color-accent);
+            color: var(--color-text);
+            transform: translateY(-3px);
+        }
+
+        .footer-title {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+            color: var(--color-light);
+        }
+
+        .footer-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background-color: var(--color-accent);
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            color: #bdc3c7;
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            color: var(--color-accent);
+            padding-left: 5px;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #bdc3c7;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .container {
+                width: 95%;
+            }
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+
+            h2 {
+                font-size: 1.8rem;
+            }
+
+            .burger {
+                display: block;
+                z-index: 1001;
+            }
+
+            .nav-links {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                height: 100vh;
+                width: 80%;
+                max-width: 400px;
+                background-color: var(--color-light);
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                transition: var(--transition);
+                z-index: 1000;
+                box-shadow: -5px 0 15px rgba(0,0,0,0.1);
+            }
+
+            .nav-links.active {
+                right: 0;
+            }
+
+            .nav-links li {
+                margin: 1.5rem 0;
+            }
+
+            .process-steps::before {
+                left: 20px;
+            }
+
+            .step {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .step-number {
+                left: 20px;
+            }
+
+            .step-content {
+                width: 85%;
+                margin-left: 40px !important;
+            }
+
+            .step:nth-child(odd) .step-content::before,
+            .step:nth-child(even) .step-content::before {
+                left: -10px;
+                right: auto;
+            }
+        }
+
+        @media (max-width: 480px) {
+            section {
+                padding: 3rem 0;
+            }
+
+            .feature-card {
+                padding: 20px;
+            }
+
+            .step-content {
+                width: 80%;
+            }
+        }
+    </style>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Raleway:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <a href="index.html" class="logo">ARQU<span>ESTUDIO</span></a>
+                <div class="burger">
+                    <div class="line1"></div>
+                    <div class="line2"></div>
+                    <div class="line3"></div>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="servicios-reforma.html">Reformas</a></li>
+                    <li><a href="servicios-acustica.html">Acústica</a></li>
+                    <li><a href="servicios-insonorizacion.html">Insonorización</a></li>
+                    <li><a href="index.html#contact">Contacto</a></li>
+                </ul>
+            </div>
+        </div>
+    </header>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>Proyectos de Reforma</h1>
+            <div class="breadcrumbs">
+                <a href="index.html">Inicio</a>
+                <span>/</span>
+                <a href="servicios-reforma.html">Proyectos de Reforma</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Service Details -->
+    <section class="service-details">
+        <div class="container">
+            <div class="service-image">
+                <img src="/api/placeholder/1200/600" alt="Proyectos de Reforma">
+            </div>
+            <div class="service-description">
+                <h2>Transformamos espacios, creamos nuevas experiencias</h2>
+                <p>En ARQUESTUDIO nos especializamos en proyectos de reforma que transforman espacios existentes en ambientes funcionales, estéticos y adaptados a las necesidades actuales de nuestros clientes. Aplicamos un enfoque integral que combina diseño, funcionalidad y sostenibilidad.</p>
+                <p>Nuestro equipo de arquitectos y técnicos cuenta con amplia experiencia en la renovación de todo tipo de espacios, desde viviendas particulares hasta locales comerciales, oficinas y edificios completos. Entendemos que cada proyecto es único, por lo que desarrollamos soluciones personalizadas que optimizan cada metro cuadrado.</p>
+            </div>
+            <div class="service-features">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-home"></i>
+                    </div>
+                    <h3 class="feature-title">Reformas Integrales</h3>
+                    <p>Transformación completa de espacios con redistribución, actualizaciones técnicas y renovación estética para adaptarlos a nuevos usos y necesidades.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-drafting-compass"></i>
+                    </div>
+                    <h3 class="feature-title">Optimización de Espacios</h3>
+                    <p>Soluciones creativas que maximizan la funcionalidad y aprovechamiento de cada metro cuadrado disponible.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-leaf"></i>
+                    </div>
+                    <h3 class="feature-title">Reformas Sostenibles</h3>
+                    <p>Implementación de materiales ecológicos y sistemas eficientes que reducen el impacto ambiental y mejoran la eficiencia energética.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-paint-roller"></i>
+                    </div>
+                    <h3 class="feature-title">Actualización Estética</h3>
+                    <p>Renovación del aspecto visual con soluciones de diseño contemporáneas que aportan valor y personalidad a los espacios.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process -->
+    <section class="process">
+        <div class="container">
+            <div class="section-title">
+                <h2>Nuestro Proceso</h2>
+                <p>Metodología clara y estructurada para garantizar el éxito de tu proyecto</p>
+            </div>
+            <div class="process-steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h3>Consulta Inicial</h3>
+                        <p>Nos reunimos para entender tus necesidades, expectativas y presupuesto. Analizamos el espacio existente y evaluamos las posibilidades técnicas.</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h3>Propuesta Conceptual</h3>
+                        <p>Desarrollamos una propuesta inicial con ideas de diseño, distribución espacial y estimación de costes para tu evaluación y feedback.</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h3>Proyecto Detallado</h3>
+                        <p>Elaboramos el proyecto técnico completo con planos, especificaciones, materiales y presupuesto definitivo tras incorporar tus comentarios.</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <div class="step-content">
+                        <h3>Gestión de Licencias</h3>
+                        <p>Nos encargamos de toda la documentación técnica y trámites administrativos necesarios para obtener los permisos de obra.</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number">5</div>
+                    <div class="step-content">
+                        <h3>Dirección de Obra</h3>
+                        <p>Supervisamos la ejecución para garantizar que se cumplen las especificaciones del proyecto, plazos y calidades acordadas.</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number">6</div>
+                    <div class="step-content">
+                        <h3>Entrega y Seguimiento</h3>
+                        <p>Realizamos una revisión final para verificar que todo está perfecto antes de la entrega y ofrecemos seguimiento posterior.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects -->
+    <section class="projects">
+        <div class="container">
+            <div class="section-title">
+                <h2>Proyectos Destacados</h2>
+                <p>Algunos ejemplos de nuestras reformas más representativas</p>
+            </div>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-img">
+                        <img src="/api/placeholder/600/400" alt="Reforma Apartamento">
+                    </div>
+                    <div class="project-overlay">
+                        <h3 class="project-title">Apartamento Malasaña</h3>
+                        <p class="project-category">Reforma Integral</p>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-img">
+                        <img src="/api/placeholder/600/400" alt="Reforma Oficina">
+                    </div>
+                    <div class="project-overlay">
+                        <h3 class="project-title">Oficinas Creativas</h3>
+                        <p class="project-category">Espacio de Trabajo</p>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-img">
+                        <img src="/api/placeholder/600/400" alt="Reforma Local Comercial">
+                    </div>
+                    <div class="project-overlay">
+                        <h3 class="project-title">Boutique Serrano</h3>
+                        <p class="project-category">Local Comercial</p>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-img">
+                        <img src="/api/placeholder/600/400" alt="Reforma Restaurante">
+                    </div>
+                    <div class="project-overlay">
+                        <h3 class="project-title">Restaurante Mediterráneo</h3>
+                        <p class="project-category">Hostelería</p>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-img">
+                        <img src="/api/placeholder/600/400" alt="Reforma Vivienda">
+                    </div>
+                    <div class="project-overlay">
+                        <h3 class="project-title">Casa Familiar</h3>
+                        <p class="project-category">Vivienda Unifamiliar</p>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-img">
+                        <img src="/api/placeholder/600/400" alt="Reforma Ático">
+                    </div>
+                    <div class="project-overlay">
+                        <h3 class="project-title">Ático con Terraza</h3>
+                        <p class="project-category">Espacio Exterior</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="faq">
+        <div class="container">
+            <div class="section-title">
+                <h2>Preguntas Frecuentes</h2>
+                <p>Resolvemos tus dudas sobre nuestros servicios de reforma</p>
+            </div>
+            <div class="accordion">
+                <div class="accordion-item">
