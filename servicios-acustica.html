@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Proyectos de Reforma | ARQUESTUDIO</title>
+    <title>Acondicionamiento Acústico | LJUDTOPIA</title>
     <style>
         /* Variables globales */
         :root {
@@ -281,312 +281,6 @@
             margin-bottom: 1rem;
         }
 
-        /* Process */
-        .process {
-            background-color: var(--color-secondary);
-            padding: 5rem 0;
-        }
-
-        .section-title {
-            text-align: center;
-            margin-bottom: 3rem;
-        }
-
-        .section-title h2 {
-            display: inline-block;
-            position: relative;
-            padding-bottom: 10px;
-        }
-
-        .section-title h2::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 80px;
-            height: 3px;
-            background-color: var(--color-accent);
-        }
-
-        .process-steps {
-            position: relative;
-            max-width: 900px;
-            margin: 0 auto;
-        }
-
-        .process-steps::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 2px;
-            height: 100%;
-            background-color: var(--color-accent);
-        }
-
-        .step {
-            position: relative;
-            margin-bottom: 50px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .step:last-child {
-            margin-bottom: 0;
-        }
-
-        .step-content {
-            width: 45%;
-            background-color: var(--color-light);
-            padding: 25px;
-            border-radius: 8px;
-            box-shadow: var(--shadow);
-            position: relative;
-        }
-
-        .step:nth-child(odd) .step-content {
-            margin-left: auto;
-        }
-
-        .step-number {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 50px;
-            height: 50px;
-            background-color: var(--color-accent);
-            color: var(--color-text);
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-weight: 700;
-            font-size: 1.2rem;
-            z-index: 1;
-        }
-
-        .step:nth-child(odd) .step-content::before {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: -10px;
-            transform: translateY(-50%) rotate(45deg);
-            width: 20px;
-            height: 20px;
-            background-color: var(--color-light);
-        }
-
-        .step:nth-child(even) .step-content::before {
-            content: '';
-            position: absolute;
-            top: 50%;
-            right: -10px;
-            transform: translateY(-50%) rotate(45deg);
-            width: 20px;
-            height: 20px;
-            background-color: var(--color-light);
-        }
-
-        /* Projects */
-        .projects {
-            padding: 5rem 0;
-        }
-
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 30px;
-            margin-top: 3rem;
-        }
-
-        .project-card {
-            position: relative;
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: var(--shadow);
-        }
-
-        .project-img {
-            height: 250px;
-        }
-
-        .project-img img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: var(--transition);
-        }
-
-        .project-card:hover .project-img img {
-            transform: scale(1.1);
-        }
-
-        .project-overlay {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            padding: 20px;
-            background: linear-gradient(
-                to top,
-                rgba(0, 0, 0, 0.8),
-                rgba(0, 0, 0, 0)
-            );
-            color: var(--color-light);
-            transition: var(--transition);
-        }
-
-        .project-title {
-            font-size: 1.2rem;
-            margin-bottom: 5px;
-        }
-
-        .project-category {
-            font-size: 0.9rem;
-            opacity: 0.8;
-        }
-
-        /* CTA Section */
-        .cta {
-            background-color: var(--color-primary);
-            color: var(--color-light);
-            text-align: center;
-            padding: 5rem 0;
-        }
-
-        .cta h2 {
-            color: var(--color-light);
-            margin-bottom: 1.5rem;
-        }
-
-        .cta p {
-            max-width: 700px;
-            margin: 0 auto 2rem;
-            opacity: 0.9;
-        }
-
-        .cta .btn {
-            background: var(--color-accent);
-            color: var(--color-text);
-        }
-
-        .cta .btn:hover {
-            background: var(--color-light);
-        }
-
-        /* FAQ */
-        .faq {
-            padding: 5rem 0;
-            background-color: var(--color-secondary);
-        }
-
-        .accordion {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .accordion-item {
-            margin-bottom: 20px;
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: var(--shadow);
-        }
-
-        .accordion-header {
-            background-color: var(--color-light);
-            padding: 20px;
-            cursor: pointer;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            transition: var(--transition);
-        }
-
-        .accordion-header h3 {
-            margin: 0;
-            font-size: 1.2rem;
-        }
-
-        .accordion-header:hover {
-            background-color: rgba(74, 109, 140, 0.05);
-        }
-
-        .accordion-content {
-            background-color: var(--color-light);
-            padding: 0 20px;
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.3s ease, padding 0.3s ease;
-        }
-
-        .accordion-content.active {
-            padding: 20px;
-            max-height: 500px;
-        }
-
-        .accordion-icon {
-            width: 20px;
-            height: 20px;
-            position: relative;
-        }
-
-        .accordion-icon::before,
-        .accordion-icon::after {
-            content: '';
-            position: absolute;
-            background-color: var(--color-primary);
-            transition: var(--transition);
-        }
-
-        .accordion-icon::before {
-            top: 9px;
-            left: 0;
-            width: 100%;
-            height: 2px;
-        }
-
-        .accordion-icon::after {
-            top: 0;
-            left: 9px;
-            width: 2px;
-            height: 100%;
-        }
-
-        .accordion-header.active .accordion-icon::after {
-            transform: rotate(90deg);
-            opacity: 0;
-        }
-
-        /* Contact Banner */
-        .contact-banner {
-            background-color: var(--color-accent);
-            padding: 3rem 0;
-            text-align: center;
-        }
-
-        .contact-banner h2 {
-            color: var(--color-text);
-            margin-bottom: 1rem;
-        }
-
-        .contact-banner p {
-            max-width: 600px;
-            margin: 0 auto 1.5rem;
-        }
-
-        .contact-banner .btn {
-            background-color: var(--color-primary);
-        }
-
-        .contact-banner .btn:hover {
-            background-color: var(--color-light);
-            color: var(--color-text);
-        }
-
         /* Footer */
         footer {
             background-color: #2c3e50;
@@ -758,10 +452,6 @@
             .feature-card {
                 padding: 20px;
             }
-
-            .step-content {
-                width: 80%;
-            }
         }
     </style>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
@@ -772,7 +462,7 @@
     <header>
         <div class="container">
             <div class="header-content">
-                <a href="index.html" class="logo">ARQU<span>ESTUDIO</span></a>
+                <a href="index.html" class="logo">LJUD<span>TOPIA</span></a>
                 <div class="burger">
                     <div class="line1"></div>
                     <div class="line2"></div>
@@ -782,7 +472,7 @@
                     <li><a href="index.html">Inicio</a></li>
                     <li><a href="servicios-reforma.html">Reformas</a></li>
                     <li><a href="servicios-acustica.html">Acústica</a></li>
-                    <li><a href="servicios-insonorizacion.html">Insonorización</a></li>
+                    <li><a href="servicios-insonorizacion.html">Aislamiento Acústico</a></li>
                     <li><a href="index.html#contact">Contacto</a></li>
                 </ul>
             </div>
@@ -792,11 +482,11 @@
     <!-- Page Header -->
     <section class="page-header">
         <div class="container">
-            <h1>Proyectos de Reforma</h1>
+            <h1>Acondicionamiento Acústico</h1>
             <div class="breadcrumbs">
                 <a href="index.html">Inicio</a>
                 <span>/</span>
-                <a href="servicios-reforma.html">Proyectos de Reforma</a>
+                <a href="servicios-acustica.html">Acondicionamiento Acústico</a>
             </div>
         </div>
     </section>
@@ -805,172 +495,86 @@
     <section class="service-details">
         <div class="container">
             <div class="service-image">
-                <img src="/api/placeholder/1200/600" alt="Proyectos de Reforma">
+                <img src="https://images.unsplash.com/photo-1519167758481-83f550bb49b3?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80" alt="Acondicionamiento Acústico">
             </div>
             <div class="service-description">
-                <h2>Transformamos espacios, creamos nuevas experiencias</h2>
-                <p>En ARQUESTUDIO nos especializamos en proyectos de reforma que transforman espacios existentes en ambientes funcionales, estéticos y adaptados a las necesidades actuales de nuestros clientes. Aplicamos un enfoque integral que combina diseño, funcionalidad y sostenibilidad.</p>
-                <p>Nuestro equipo de arquitectos y técnicos cuenta con amplia experiencia en la renovación de todo tipo de espacios, desde viviendas particulares hasta locales comerciales, oficinas y edificios completos. Entendemos que cada proyecto es único, por lo que desarrollamos soluciones personalizadas que optimizan cada metro cuadrado.</p>
+                <h2>Optimizamos la calidad sonora de tus espacios</h2>
+                <p>En LJUDTOPIA somos especialistas en acondicionamiento acústico, diseñando e implementando soluciones que mejoran la calidad sonora de los espacios para crear ambientes más confortables y funcionales desde el punto de vista acústico.</p>
+                <p>El acondicionamiento acústico se centra en controlar cómo se comporta el sonido dentro de un recinto, optimizando parámetros como la reverberación, la claridad del sonido y la distribución homogénea de las ondas sonoras. A diferencia del aislamiento acústico, que evita que el ruido entre o salga de un espacio, el acondicionamiento busca mejorar la experiencia sonora interna.</p>
             </div>
             <div class="service-features">
                 <div class="feature-card">
                     <div class="feature-icon">
+                        <i class="fas fa-music"></i>
+                    </div>
+                    <h3 class="feature-title">Espacios de Alta Exigencia</h3>
+                    <p>Diseño acústico especializado para estudios de grabación, salas de ensayo, auditorios y teatros donde la calidad sonora es crítica.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
                         <i class="fas fa-home"></i>
                     </div>
-                    <h3 class="feature-title">Reformas Integrales</h3>
-                    <p>Transformación completa de espacios con redistribución, actualizaciones técnicas y renovación estética para adaptarlos a nuevos usos y necesidades.</p>
+                    <h3 class="feature-title">Confort Acústico Residencial</h3>
+                    <p>Mejoramos la experiencia sonora en viviendas, especialmente en home theaters, salas de música y espacios de convivencia familiar.</p>
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon">
-                        <i class="fas fa-drafting-compass"></i>
+                        <i class="fas fa-building"></i>
                     </div>
-                    <h3 class="feature-title">Optimización de Espacios</h3>
-                    <p>Soluciones creativas que maximizan la funcionalidad y aprovechamiento de cada metro cuadrado disponible.</p>
+                    <h3 class="feature-title">Acústica para Oficinas</h3>
+                    <p>Creamos ambientes laborales más productivos reduciendo la fatiga auditiva y mejorando la inteligibilidad en salas de reuniones y espacios abiertos.</p>
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon">
-                        <i class="fas fa-leaf"></i>
+                        <i class="fas fa-utensils"></i>
                     </div>
-                    <h3 class="feature-title">Reformas Sostenibles</h3>
-                    <p>Implementación de materiales ecológicos y sistemas eficientes que reducen el impacto ambiental y mejoran la eficiencia energética.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-paint-roller"></i>
-                    </div>
-                    <h3 class="feature-title">Actualización Estética</h3>
-                    <p>Renovación del aspecto visual con soluciones de diseño contemporáneas que aportan valor y personalidad a los espacios.</p>
+                    <h3 class="feature-title">Restaurantes y Locales</h3>
+                    <p>Optimizamos la experiencia del cliente controlando los niveles de ruido y mejorando la claridad de las conversaciones en espacios comerciales.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Process -->
-    <section class="process">
+    <!-- Footer -->
+    <footer>
         <div class="container">
-            <div class="section-title">
-                <h2>Nuestro Proceso</h2>
-                <p>Metodología clara y estructurada para garantizar el éxito de tu proyecto</p>
+            <div class="footer-content">
+                <div class="footer-about">
+                    <a href="index.html" class="footer-logo">LJUDTOPIA</a>
+                    <p>Transformamos espacios existentes con soluciones arquitectónicas innovadoras, sostenibles y acústicamente optimizadas.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links-container">
+                    <h4 class="footer-title">Enlaces Rápidos</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Inicio</a></li>
+                        <li><a href="servicios-reforma.html">Reformas</a></li>
+                        <li><a href="servicios-acustica.html">Acústica</a></li>
+                        <li><a href="servicios-insonorizacion.html">Aislamiento Acústico</a></li>
+                        <li><a href="index.html#contact">Contacto</a></li>
+                    </ul>
+                </div>
+                <div class="footer-newsletter">
+                    <h4 class="footer-title">Newsletter</h4>
+                    <p>Suscríbete para recibir noticias y actualizaciones sobre nuestros servicios.</p>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Tu email" class="form-control" required>
+                        <button type="submit" class="btn">Suscribirse</button>
+                    </form>
+                </div>
             </div>
-            <div class="process-steps">
-                <div class="step">
-                    <div class="step-number">1</div>
-                    <div class="step-content">
-                        <h3>Consulta Inicial</h3>
-                        <p>Nos reunimos para entender tus necesidades, expectativas y presupuesto. Analizamos el espacio existente y evaluamos las posibilidades técnicas.</p>
-                    </div>
-                </div>
-                <div class="step">
-                    <div class="step-number">2</div>
-                    <div class="step-content">
-                        <h3>Propuesta Conceptual</h3>
-                        <p>Desarrollamos una propuesta inicial con ideas de diseño, distribución espacial y estimación de costes para tu evaluación y feedback.</p>
-                    </div>
-                </div>
-                <div class="step">
-                    <div class="step-number">3</div>
-                    <div class="step-content">
-                        <h3>Proyecto Detallado</h3>
-                        <p>Elaboramos el proyecto técnico completo con planos, especificaciones, materiales y presupuesto definitivo tras incorporar tus comentarios.</p>
-                    </div>
-                </div>
-                <div class="step">
-                    <div class="step-number">4</div>
-                    <div class="step-content">
-                        <h3>Gestión de Licencias</h3>
-                        <p>Nos encargamos de toda la documentación técnica y trámites administrativos necesarios para obtener los permisos de obra.</p>
-                    </div>
-                </div>
-                <div class="step">
-                    <div class="step-number">5</div>
-                    <div class="step-content">
-                        <h3>Dirección de Obra</h3>
-                        <p>Supervisamos la ejecución para garantizar que se cumplen las especificaciones del proyecto, plazos y calidades acordadas.</p>
-                    </div>
-                </div>
-                <div class="step">
-                    <div class="step-number">6</div>
-                    <div class="step-content">
-                        <h3>Entrega y Seguimiento</h3>
-                        <p>Realizamos una revisión final para verificar que todo está perfecto antes de la entrega y ofrecemos seguimiento posterior.</p>
-                    </div>
-                </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 LJUDTOPIA. Todos los derechos reservados.</p>
             </div>
         </div>
-    </section>
+    </footer>
 
-    <!-- Projects -->
-    <section class="projects">
-        <div class="container">
-            <div class="section-title">
-                <h2>Proyectos Destacados</h2>
-                <p>Algunos ejemplos de nuestras reformas más representativas</p>
-            </div>
-            <div class="projects-grid">
-                <div class="project-card">
-                    <div class="project-img">
-                        <img src="/api/placeholder/600/400" alt="Reforma Apartamento">
-                    </div>
-                    <div class="project-overlay">
-                        <h3 class="project-title">Apartamento Malasaña</h3>
-                        <p class="project-category">Reforma Integral</p>
-                    </div>
-                </div>
-                <div class="project-card">
-                    <div class="project-img">
-                        <img src="/api/placeholder/600/400" alt="Reforma Oficina">
-                    </div>
-                    <div class="project-overlay">
-                        <h3 class="project-title">Oficinas Creativas</h3>
-                        <p class="project-category">Espacio de Trabajo</p>
-                    </div>
-                </div>
-                <div class="project-card">
-                    <div class="project-img">
-                        <img src="/api/placeholder/600/400" alt="Reforma Local Comercial">
-                    </div>
-                    <div class="project-overlay">
-                        <h3 class="project-title">Boutique Serrano</h3>
-                        <p class="project-category">Local Comercial</p>
-                    </div>
-                </div>
-                <div class="project-card">
-                    <div class="project-img">
-                        <img src="/api/placeholder/600/400" alt="Reforma Restaurante">
-                    </div>
-                    <div class="project-overlay">
-                        <h3 class="project-title">Restaurante Mediterráneo</h3>
-                        <p class="project-category">Hostelería</p>
-                    </div>
-                </div>
-                <div class="project-card">
-                    <div class="project-img">
-                        <img src="/api/placeholder/600/400" alt="Reforma Vivienda">
-                    </div>
-                    <div class="project-overlay">
-                        <h3 class="project-title">Casa Familiar</h3>
-                        <p class="project-category">Vivienda Unifamiliar</p>
-                    </div>
-                </div>
-                <div class="project-card">
-                    <div class="project-img">
-                        <img src="/api/placeholder/600/400" alt="Reforma Ático">
-                    </div>
-                    <div class="project-overlay">
-                        <h3 class="project-title">Ático con Terraza</h3>
-                        <p class="project-category">Espacio Exterior</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- FAQ -->
-    <section class="faq">
-        <div class="container">
-            <div class="section-title">
-                <h2>Preguntas Frecuentes</h2>
-                <p>Resolvemos tus dudas sobre nuestros servicios de reforma</p>
-            </div>
-            <div class="accordion">
-                <div class="accordion-item">
+    <!-- JavaScript -->
+    <script src="main.js"></script>
+</body>
+</html>
