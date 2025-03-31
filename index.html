@@ -213,8 +213,6 @@
             height: 100vh;
             background-color: #f5f5f5;
             overflow: hidden;
-            margin-top: 0;
-            padding-top: 0;
         }
 
         .hero::before {
@@ -689,39 +687,32 @@
             max-width: 600px;
             margin: 0 auto 1.5rem;
         }
-    
-body { padding-top: 70px; }
-.custom-header { position: fixed; top: 0; width: 100%; background: white; z-index: 1000; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }</style>
-<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&amp;family=Raleway:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+    </style>
 </head>
 <body>
 <!-- Header -->
 <header>
 <div class="container">
+<div class="header-content">
 <a class="logo" href="index.html">LJUD<span>TOPIA</span></a>
-<nav>
-<ul style="display: flex; list-style: none; margin: 0; padding: 0; gap: 1.5rem; font-weight: 500;">
+<div class="burger">
+<div class="line1"></div>
+<div class="line2"></div>
+<div class="line3"></div>
+</div>
+<ul class="nav-links">
 <li><a href="index.html">Inicio</a></li>
 <li><a href="servicios-reforma.html">Reformas</a></li>
 <li><a href="servicios-acustica.html">Acústica</a></li>
-<li><a href="servicios-insonorizacion.html">Aislamiento</a></li>
-<li><a href="blog.html">Blog</a></li>
-<li><a href="galeria.html">Galería</a></li>
-<li><a href="#contact">Contacto</a></li>
+<li><a href="servicios-insonorizacion.html">Aislamiento Acústico</a></li>
+<li><a href="index.html#contact">Contacto</a></li>
 </ul>
-</nav>
+</div>
 </div>
 </header>
-</body>
-</html>o
-
-
-
-
 <!-- Hero Section -->
 <section class="hero">
-<img alt="Arquitectura Acústica" class="hero-bg" src="https://images.unsplash.com/photo-1612533398839-3a5ce86d9708?ixlib=rb-1.2.1&amp;auto=format&amp;fit=crop&amp;w=1920&amp;q=80"/>
+<img alt="Arquitectura Acústica" class="hero-bg" src="https://images.unsplash.com/photo-1604014238170-4def1e4e6fcf?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80"/>
 <div class="container">
 <div class="hero-content">
 <h1 class="hero-title">Transformamos espacios, creamos experiencias</h1>
@@ -743,7 +734,7 @@ body { padding-top: 70px; }
 <div class="services-grid">
 <div class="service-card">
 <div class="service-img">
-<img alt="Proyectos de Reforma" src="https://images.unsplash.com/photo-1517581177682-a085bb7ffb38?ixlib=rb-1.2.1&amp;auto=format&amp;fit=crop&amp;w=600&amp;q=80"/>
+<img alt="Proyectos de Reforma" src="https://images.pexels.com/photos/323705/pexels-photo-323705.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"/>
 </div>
 <div class="service-content">
 <h3 class="service-title">Proyectos de Reforma</h3>
@@ -753,7 +744,7 @@ body { padding-top: 70px; }
 </div>
 <div class="service-card">
 <div class="service-img">
-<img alt="Acondicionamiento Acústico" src="https://images.unsplash.com/photo-1583412745828-814e32918933?ixlib=rb-1.2.1&amp;auto=format&amp;fit=crop&amp;w=600&amp;q=80"/>
+<img alt="Acondicionamiento Acústico" src="https://images.unsplash.com/photo-1565538810643-b5bdb714032a?ixlib=rb-1.2.1&auto=format&fit=crop&w=934&q=80"/>
 </div>
 <div class="service-content">
 <h3 class="service-title">Acondicionamiento Acústico</h3>
@@ -763,7 +754,7 @@ body { padding-top: 70px; }
 </div>
 <div class="service-card">
 <div class="service-img">
-<img alt="Aislamiento Acústico" src="https://images.unsplash.com/photo-1602922600410-aa83218d9160?ixlib=rb-1.2.1&amp;auto=format&amp;fit=crop&amp;w=600&amp;q=80"/>
+<img alt="Aislamiento Acústico" src="https://images.pexels.com/photos/221027/pexels-photo-221027.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"/>
 </div>
 <div class="service-content">
 <h3 class="service-title">Aislamiento Acústico</h3>
@@ -779,7 +770,7 @@ body { padding-top: 70px; }
 <div class="container">
 <div class="about-grid">
 <div class="about-img">
-<img alt="Nuestro Estudio" src="https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?ixlib=rb-1.2.1&amp;auto=format&amp;fit=crop&amp;w=600&amp;q=80"/>
+<img alt="Nuestro Estudio" src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80"/>
 </div>
 <div class="about-content">
 <h2>Sobre Nuestro Estudio</h2>
@@ -851,32 +842,32 @@ body { padding-top: 70px; }
 <i class="fas fa-map-marker-alt"></i>
 </div>
 <div class="contact-text">
-                                Avenida de la ONU número 32, 28936 Móstoles
-                            </div>
+                            Avenida de la ONU número 32, 28936 Móstoles
+                        </div>
 </div>
 <div class="contact-item">
 <div class="contact-icon">
 <i class="fas fa-phone"></i>
 </div>
 <div class="contact-text">
-                                +34 667 817 991
-                            </div>
+                            +34 667 817 991
+                        </div>
 </div>
 <div class="contact-item">
 <div class="contact-icon">
 <i class="fas fa-envelope"></i>
 </div>
 <div class="contact-text">
-                                info@ljudtopia.com
-                            </div>
+                            info@ljudtopia.com
+                        </div>
 </div>
 <div class="contact-item">
 <div class="contact-icon">
 <i class="fas fa-clock"></i>
 </div>
 <div class="contact-text">
-                                Lunes a Viernes: 9:00 - 18:00
-                            </div>
+                            Lunes a Viernes: 9:00 - 18:00
+                        </div>
 </div>
 </div>
 </div>
@@ -913,23 +904,25 @@ body { padding-top: 70px; }
 </section>
 <!-- Footer -->
 <footer>
+<!-- Footer/Social (íconos Font Awesome) -->
 <div class="container">
-<div class="footer-content">
-<div class="footer-about">
-<a class="footer-logo" href="index.html">LJUDTOPIA</a>
-<p>Transformamos espacios existentes con soluciones arquitectónicas innovadoras, sostenibles y acústicamente optimizadas.</p>
-<div class="social-links">
-<a href="#"><i class="fab fa-facebook-f"></i></a>
-<a href="#"><i class="fab fa-twitter"></i></a>
-<a href="#"><i class="fab fa-instagram"></i></a>
-<a href="#"><i class="fab fa-linkedin-in"></i></a>
-</div>
-</div>
-<div class="footer-links-container">
-<h4 class="footer-title">Enlaces Rápidos</h4>
-<ul class="footer-links">
-<li><a href="index.html">Inicio</a></li>
-<li><a href="servicios-reforma.html">Reformas</a></li>
-<li><a href="servicios-acustica.html">Acústica</a></li>
-<li><a href="servicios-insonorizacion.html">Aislamiento Acústico</a></li>
-<li><a href="#contact">Contact</a></li></ul></div></div></div></footer>
+    <div class="footer-content">
+        <div class="footer-about">
+            <a class="footer-logo" href="index.html">LJUDTOPIA</a>
+            <p>Transformamos espacios existentes con soluciones arquitectónicas innovadoras, sostenibles y acústicamente optimizadas.</p>
+            <div class="social-links">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+        </div>
+        <div class="footer-links-container">
+            <h4 class="footer-title">Enlaces Rápidos</h4>
+            <ul class="footer-links">
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="servicios-reforma.html">Reformas</a></li>
+                <li><a href="servicios-acustica.html">Ac
+</footer>
+</body>
+</html>
