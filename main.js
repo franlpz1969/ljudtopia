@@ -10,10 +10,10 @@ document.addEventListener('DOMContentLoaded', function() {
         burger.addEventListener('click', () => {
             // Toggle Nav
             nav.classList.toggle('active');
-            
+
             // Prevenir scroll cuando el menú está abierto
             body.classList.toggle('no-scroll');
-            
+
             // Animate Links
             navLinks.forEach((link, index) => {
                 if (link.style.animation) {
@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     link.style.animation = `navLinkFade 0.5s ease forwards ${index / 7 + 0.3}s`;
                 }
             });
-            
+
             // Burger Animation
             burger.classList.toggle('toggle');
         });
@@ -35,7 +35,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 nav.classList.remove('active');
                 body.classList.remove('no-scroll');
                 burger.classList.remove('toggle');
-                
+
                 navLinks.forEach(link => {
                     link.style.animation = '';
                 });
@@ -45,15 +45,15 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Accordion Functionality
     const accordionHeaders = document.querySelectorAll('.accordion-header');
-    
+
     accordionHeaders.forEach(header => {
         header.addEventListener('click', () => {
             const accordionItem = header.parentElement;
             const accordionContent = header.nextElementSibling;
-            
+
             // Toggle active class
             header.classList.toggle('active');
-            
+
             // Toggle content
             if (header.classList.contains('active')) {
                 accordionContent.classList.add('active');
@@ -67,11 +67,11 @@ document.addEventListener('DOMContentLoaded', function() {
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             const targetId = this.getAttribute('href');
-            
+
             // Solo aplicar a anclas que apuntan a elementos existentes
             if (targetId !== '#' && document.querySelector(targetId)) {
                 e.preventDefault();
-                
+
                 document.querySelector(targetId).scrollIntoView({
                     behavior: 'smooth'
                 });
@@ -96,20 +96,20 @@ document.addEventListener('DOMContentLoaded', function() {
     if (contactForm) {
         contactForm.addEventListener('submit', function(e) {
             e.preventDefault();
-            
+
             // Aquí iría la lógica para enviar el formulario
             alert('Gracias por tu mensaje. Te contactaremos pronto.');
             contactForm.reset();
         });
     }
 
-    // Formulario de newsletter
+    // Formulario de newsletter (si hubiera en alguna página)
     const newsletterForms = document.querySelectorAll('.newsletter-form');
     if (newsletterForms.length > 0) {
         newsletterForms.forEach(form => {
             form.addEventListener('submit', function(e) {
                 e.preventDefault();
-                
+
                 // Aquí iría la lógica para suscribir al newsletter
                 alert('¡Gracias por suscribirte a nuestro newsletter!');
                 form.reset();
@@ -117,21 +117,20 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Animación de elementos al hacer scroll
+    // Animación de elementos al hacer scroll (si hubiera elementos con estas clases)
     const animateOnScroll = () => {
         const elements = document.querySelectorAll('.fade-in, .slide-in, .pop-in');
-        
+
         elements.forEach(element => {
             const elementPosition = element.getBoundingClientRect().top;
             const screenPosition = window.innerHeight / 1.3;
-            
+
             if (elementPosition < screenPosition) {
                 element.classList.add('appear');
             }
         });
     };
 
-    // Ejecutar animación al cargar la página y al hacer scroll
     if (document.querySelectorAll('.fade-in, .slide-in, .pop-in').length > 0) {
         window.addEventListener('scroll', animateOnScroll);
         animateOnScroll(); // Ejecutar una vez al cargar
