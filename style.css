@@ -41,7 +41,7 @@ h1, h2, h3, h4, h5 {
 }
 
 h1 {
-    font-size: 2.2rem;
+    font-size: 2rem;
 }
 
 h2 {
@@ -310,7 +310,7 @@ header.sticky {
 }
 
 .page-header h1 {
-    font-size: 2.6rem;
+    font-size: 2rem;
     margin-bottom: 0rem; /* Reducimos el margen inferior del título al mínimo */
     color: var(--color-primary);
 }
@@ -755,11 +755,23 @@ footer {
         font-size: 1.3rem;
     }
 
-    .hero .container {
-        grid-template-columns: 1fr;
-        text-align: center;
+    .hero .container > *:last-child {
+        margin-bottom: 0 !important;
     }
 
+    /* Elimina el margen superior predeterminado del h2 en la sección de servicios */
+    .services .section-title {
+        margin-top: 0 !important;
+        margin-bottom: 1.2rem; /* Mantén o ajusta el margen inferior si lo deseas */
+    }
+
+    /* Asegúrate de que la sección de servicios no tenga margen superior */
+    .services {
+        /* padding-top: 0;  <-- Asegúrate de tener esto o el estilo en línea en index.html --> */
+        margin-top: 0 !important; /* Fuerza la eliminación del margen superior */
+        padding-bottom: 6rem;
+    }
+    
     .hero-content {
         padding-right: 0;
         margin-bottom: 2rem;
