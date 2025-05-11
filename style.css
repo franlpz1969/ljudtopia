@@ -1,0 +1,382 @@
+/* Estilos generales */
+body {
+  font-family: Arial, sans-serif; /* Usando una fuente sans-serif común. Cámbiala si tienes una específica en el diseño */
+  font-size: 0.9em; /* Reducir el tamaño general de la fuente. Ajusta este valor (e.g., 14px, 0.85em) */
+  margin: 0;
+  line-height: 1.6; /* Espaciado entre líneas */
+  color: #333; /* Color general del texto */
+  background-color: #fff; /* Fondo general de la página si no está cubierto por secciones */
+}
+
+.container {
+  max-width: 1200px; /* Ajusta el ancho máximo del contenido principal según tu diseño */
+  margin: 0 auto;
+  padding: 0 20px; /* Espaciado lateral dentro del contenedor */
+  box-sizing: border-box; /* Incluye el padding en el ancho total */
+}
+
+/* Encabezado Principal */
+.site-header {
+  background-color: #fff; /* Fondo del encabezado */
+  padding: 10px 0;
+  border-bottom: 1px solid #eee; /* Separador visual sutil */
+}
+
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.site-logo {
+  display: flex;
+  align-items: center;
+}
+
+.site-logo img {
+  height: 35px; /* Ajusta el tamaño del logo, quizás un poco más pequeño */
+  margin-right: 10px;
+}
+
+/* Ocultar el texto si el logo es una imagen con el texto incluido */
+.site-logo img + .site-title-text {
+  display: none; /* Oculta el span si la imagen ya contiene el texto */
+}
+
+/* Si el logo SÍ necesita el texto al lado (ajusta según tu imagen de logo) */
+/*
+.site-title-text {
+  font-size: 1.3em; // Tamaño de fuente ajustado para el título
+  font-weight: bold;
+  color: #333;
+}
+*/
+
+
+.main-nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+.main-nav li {
+  margin-left: 15px; /* Espacio entre elementos del menú principal, ligeramente reducido */
+}
+
+.main-nav a {
+  text-decoration: none;
+  color: #333; /* Color de los enlaces del menú principal */
+  font-weight: bold;
+  font-size: 0.9em; /* Ajusta tamaño de fuente de navegación principal */
+  padding: 5px 0;
+  transition: color 0.3s ease;
+  display: block; /* Facilita el área clickable */
+}
+
+.main-nav a:hover {
+  color: #007bff; /* O el color de hover de tu diseño */
+}
+
+.language-switcher img {
+  height: 18px; /* Ajusta el tamaño de las banderas */
+  margin-left: 5px;
+  cursor: pointer; /* Indica que son interactivas */
+  vertical-align: middle; /* Alinea las banderas con el texto/nav */
+}
+
+/* Navegación secundaria/Breadcrumbs */
+.secondary-nav-bar {
+  background-color: #f8f8f8; /* Color de fondo de esta barra, similar a la imagen */
+  padding: 8px 0; /* Padding ligeramente reducido */
+  border-bottom: 1px solid #eee;
+  font-size: 0.8em; /* Tamaño de fuente más pequeño para breadcrumbs */
+  color: #555;
+}
+
+.secondary-nav-bar .container {
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+}
+
+.secondary-nav a {
+  text-decoration: none;
+  color: #555; /* Color de los enlaces de breadcrumb */
+  margin-right: 5px; /* Espacio entre elementos */
+}
+
+.secondary-nav a:last-child {
+  margin-right: 0;
+}
+
+.secondary-nav a:hover {
+  text-decoration: underline;
+}
+
+.tagline {
+  font-style: italic;
+  color: #777; /* Color del lema */
+}
+
+
+/* Distribución principal de 3 columnas */
+.main-layout {
+  display: grid;
+  grid-template-columns: 250px 1fr 200px; /* Ancho barra izq (250px), Contenido (flex), Ancho barra der (200px). Ajusta según tu diseño */
+  gap: 20px; /* Espacio entre columnas */
+  margin-top: 20px;
+}
+
+.sidebar-left {
+  background-color: #001f3f; /* Color azul oscuro de la barra lateral */
+  color: #fff;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.sidebar-title {
+  font-size: 1em; /* Tamaño de fuente ajustado para el título de la barra lateral */
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: #fff;
+  text-transform: uppercase; /* Si el título está en mayúsculas en el diseño */
+}
+
+.sidebar-nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.sidebar-nav li {
+  margin-bottom: 6px; /* Espacio ligeramente reducido entre elementos de la lista */
+}
+
+.sidebar-nav a {
+  text-decoration: none;
+  color: #b0c4de; /* Color de los enlaces de la barra lateral (azul claro) */
+  display: block;
+  padding: 3px 0;
+  transition: color 0.3s ease;
+   font-size: 0.9em; /* Tamaño de fuente de navegación lateral */
+}
+
+.sidebar-nav a:hover {
+  color: #fff; /* Color al pasar el ratón */
+}
+
+.sidebar-nav li.active > a {
+  color: #fff;
+  font-weight: bold;
+  /* Puedes añadir un fondo o borde si el diseño lo indica para el elemento activo */
+}
+
+.sidebar-nav .submenu {
+  list-style: none;
+  padding-left: 15px; /* Indentación para submenú */
+  margin-top: 5px;
+  margin-bottom: 5px;
+  border-left: 1px solid #334f6f; /* O un color que contraste sutilmente para la indentación */
+}
+
+.sidebar-nav .submenu li {
+  margin-bottom: 4px; /* Espacio reducido en submenú */
+}
+
+.sidebar-nav .submenu a {
+   font-weight: normal;
+   font-size: 0.85em; /* Tamaño de fuente ligeramente más pequeño para el submenú */
+   color: #b0c4de; /* Color de los enlaces del submenú */
+}
+
+.sidebar-nav .submenu a:hover {
+  color: #fff;
+}
+
+
+.content-main {
+  background-color: #fff; /* Fondo del contenido principal */
+  padding: 0 20px; /* Espacio interno */
+  box-sizing: border-box;
+}
+
+.content-main section {
+  margin-bottom: 25px; /* Espacio entre secciones ligeramente reducido */
+  padding-bottom: 15px; /* Padding inferior ligeramente reducido */
+  border-bottom: 1px solid #eee; /* Separador entre secciones */
+}
+
+.content-main section:last-child {
+  border-bottom: none;
+}
+
+.content-main h2 {
+  color: #333; /* Color de los títulos H2 */
+  margin-top: 0;
+  margin-bottom: 10px; /* Espacio inferior reducido */
+  font-size: 1.6em; /* Ajusta el tamaño de fuente */
+}
+
+.content-main h3 {
+  color: #333; /* Color de los títulos H3 */
+  margin-top: 15px; /* Espacio superior reducido */
+  margin-bottom: 8px; /* Espacio inferior reducido */
+  font-size: 1.2em; /* Ajusta el tamaño de fuente */
+}
+
+.content-main h4 {
+   color: #555; /* Color de los títulos H4 */
+   margin-top: 10px; /* Espacio superior reducido */
+   margin-bottom: 6px; /* Espacio inferior reducido */
+   font-size: 1em; /* Ajusta el tamaño de fuente */
+}
+
+
+.content-main p {
+  margin-bottom: 12px; /* Espacio inferior reducido */
+}
+
+.content-main ul {
+  list-style: disc; /* Usar discos para las listas */
+  margin-left: 25px; /* Indentación de la lista */
+  padding: 0;
+  margin-bottom: 12px; /* Espacio inferior reducido */
+}
+
+.content-main ul li {
+  margin-bottom: 6px; /* Espacio inferior reducido en items de lista */
+}
+
+
+/* Barra lateral derecha con imágenes */
+.sidebar-right {
+  padding: 0 10px; /* Espacio interno */
+  box-sizing: border-box;
+}
+
+.sidebar-right .sidebar-image {
+  margin-bottom: 15px; /* Espacio entre imágenes reducido */
+  /* Puedes añadir bordes o sombras si el diseño las tiene */
+  /* border: 1px solid #ccc; */
+  /* box-shadow: 2px 2px 5px rgba(0,0,0,0.1); */
+}
+
+.sidebar-right img {
+  max-width: 100%;
+  height: auto;
+  display: block; /* Elimina espacio extra debajo de la imagen */
+}
+
+/* Pie de página (si se añade) */
+footer {
+  /* Estilos para el pie de página */
+  margin-top: 30px; /* Margen superior reducido */
+  padding: 15px; /* Padding reducido */
+  background-color: #f8f8f8; /* Color de fondo del pie de página */
+  text-align: center;
+  color: #555;
+  font-size: 0.8em; /* Tamaño de fuente del pie de página */
+}
+
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .main-layout {
+      /* En pantallas medianas, quizás apilar la barra lateral derecha o reducir su tamaño */
+      grid-template-columns: 200px 1fr; /* Ancho sidebar izq reducido, barra der oculta */
+      gap: 15px;
+  }
+
+  .sidebar-right {
+      display: none; /* Oculta la barra lateral derecha en pantallas medianas */
+  }
+
+   .container {
+      padding: 0 15px;
+   }
+
+   body {
+      font-size: 0.9em; /* Mantener o ajustar tamaño base en responsive */
+   }
+
+   .content-main h2 { font-size: 1.5em; }
+   .content-main h3 { font-size: 1.1em; }
+   .content-main h4 { font-size: 0.95em; }
+   .main-nav a { font-size: 0.85em; }
+   .sidebar-nav a { font-size: 0.85em; }
+   .sidebar-nav .submenu a { font-size: 0.8em; }
+   .secondary-nav-bar { font-size: 0.75em; }
+}
+
+@media (max-width: 768px) {
+  .header-container {
+      flex-direction: column; /* Apila elementos del encabezado */
+      align-items: flex-start; /* Alinea a la izquierda en móvil */
+  }
+
+  .site-logo {
+      margin-bottom: 10px;
+  }
+
+  .main-nav {
+      width: 100%; /* Menú principal ocupa todo el ancho */
+      margin-bottom: 10px;
+  }
+
+  .main-nav ul {
+      flex-direction: column; /* Apila los elementos del menú principal */
+      align-items: flex-start; /* Alinea a la izquierda */
+  }
+
+  .main-nav li {
+      margin: 0 0 5px 0; /* Espacio vertical entre elementos */
+  }
+
+  .secondary-nav-bar .container {
+      flex-direction: column;
+      align-items: flex-start;
+  }
+
+  .secondary-nav {
+      margin-bottom: 5px;
+  }
+
+  .tagline {
+      text-align: left;
+  }
+
+
+  .main-layout {
+      grid-template-columns: 1fr; /* Una sola columna en móviles */
+      gap: 20px; /* Espacio entre las secciones apiladas */
+  }
+
+  .sidebar-left {
+      width: auto; /* Ancho automático */
+      padding: 15px;
+  }
+
+  .sidebar-nav .submenu {
+       padding-left: 10px; /* Menor indentación en móvil */
+       border-left: none; /* Opcional: Quitar el borde en móvil */
+  }
+
+
+  .content-main {
+      padding: 0 15px;
+  }
+
+   .content-main section {
+      padding-bottom: 15px;
+      margin-bottom: 20px;
+   }
+
+  body {
+      font-size: 1em; /* Puedes resetear o ajustar tamaño base en móvil */
+  }
+  /* Ajustar tamaños de fuente para títulos y otros elementos en móvil si es necesario */
+   .content-main h2 { font-size: 1.4em; }
+   .content-main h3 { font-size: 1.1em; }
+
+}

@@ -3,166 +3,178 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LJUDTOPIA.com - Mejoramos tu salud através de tu entorno</title>
-    <meta name="description" content="Oficina de arquitectura especializada en acústica y sistemas constructivos para mejorar la salud a través del entorno construido.">
-    <link rel="stylesheet" href="css/styles.css">
-    <link rel="icon" href="favicon.ico" type="image/x-icon">
-    <script>
-        // Redirect to the appropriate language version based on browser settings
-        (function() {
-            // Check for language cookie first
-            function getCookie(name) {
-                const value = `; ${document.cookie}`;
-                const parts = value.split(`; ${name}=`);
-                if (parts.length === 2) return parts.pop().split(';').shift();
-                return null;
-            }
-            
-            const preferredLanguage = getCookie('preferredLanguage');
-            
-            if (preferredLanguage) {
-                // Redirect based on saved preference
-                switch(preferredLanguage) {
-                    case 'en':
-                        window.location.href = 'index-en.html';
-                        break;
-                    case 'sv':
-                        window.location.href = 'index-sv.html';
-                        break;
-                    default:
-                        window.location.href = 'inicio.html';
-                }
-            } else {
-                // Check browser language
-                const browserLang = navigator.language || navigator.userLanguage;
-                
-                if (browserLang.startsWith('en')) {
-                    window.location.href = 'index-en.html';
-                } else if (browserLang.startsWith('sv')) {
-                    window.location.href = 'index-sv.html';
-                } else {
-                    window.location.href = 'inicio.html';
-                }
-            }
-        })();
-    </script>
-    <style>
-        /* Minimal styling for the loading screen */
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f5f5f5;
-        }
-        
-        .loading-container {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            text-align: center;
-        }
-        
-        .logo-container {
-            margin-bottom: 20px;
-        }
-        
-        .logo-container img {
-            max-width: 150px;
-            height: auto;
-        }
-        
-        h1 {
-            font-size: 24px;
-            color: #0a2846;
-            margin: 10px 0;
-        }
-        
-        p {
-            font-size: 16px;
-            color: #666;
-        }
-        
-        .languages {
-            display: flex;
-            justify-content: center;
-            margin-top: 30px;
-        }
-        
-        .language-option {
-            margin: 0 10px;
-            text-align: center;
-        }
-        
-        .language-option a {
-            display: block;
-            text-decoration: none;
-            color: #0066cc;
-        }
-        
-        .language-option img {
-            width: 40px;
-            height: auto;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-            margin-bottom: 5px;
-        }
-        
-        .language-option span {
-            display: block;
-            font-size: 14px;
-        }
-        
-        .loading-spinner {
-            border: 3px solid rgba(0, 0, 0, 0.1);
-            border-top: 3px solid #0066cc;
-            border-radius: 50%;
-            width: 30px;
-            height: 30px;
-            animation: spin 1s linear infinite;
-            margin: 20px auto;
-        }
-        
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-    </style>
+    <title>Información - LUJDUTOPIA.COM</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="loading-container">
-        <div class="logo-container">
-            <img src="images/logo.png" alt="LJUDTOPIA.com">
-            <h1>LJUDTOPIA.com</h1>
-            <p>Mejoramos tu salud através de tu entorno</p>
+
+    <header class="site-header">
+        <div class="container header-container">
+            <div class="site-logo">
+                <img src="img/Logo2.png" alt="LUJDUTOPIA.COM Logo">
+                </div>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="#">INICIO</a></li>
+                    <li><a href="#">SERVICIOS</a></li>
+                    <li><a href="#">INFO</a></li>
+                    <li><a href="#">CONCEPTOS</a></li>
+                    <li><a href="#">TJÄNSTER</a></li>
+                    <li><a href="#">SERVICES (ENGLISH)</a></li>
+                </ul>
+            </nav>
+            <div class="language-switcher">
+                <img src="https://flagcdn.com/es.svg" alt="Español"> <img src="https://flagcdn.com/se.svg" alt="Svenska"> </div>
         </div>
-        
-        <div class="loading-spinner"></div>
-        <p>Redirigiendo al idioma preferido...</p>
-        
-        <div class="languages">
-            <div class="language-option">
-                <a href="inicio.html">
-                    <img src="images/flags/spain.png" alt="Español">
-                    <span>Español</span>
-                </a>
-            </div>
-            
-            <div class="language-option">
-                <a href="index-en.html">
-                    <img src="images/flags/uk.png" alt="English">
-                    <span>English</span>
-                </a>
-            </div>
-            
-            <div class="language-option">
-                <a href="index-sv.html">
-                    <img src="images/flags/sweden.png" alt="Svenska">
-                    <span>Svenska</span>
-                </a>
-            </div>
+    </header>
+
+    <div class="secondary-nav-bar">
+        <div class="container">
+            <nav class="secondary-nav">
+                <a href="#">Inicio</a> &gt; <a href="#">Servicios</a> &gt; <a href="#">Info</a> &gt; <a href="#">Conceptos</a> &gt; <a href="#">Tjanster</a> &gt; <a href="#">Services</a>
+            </nav>
+             <div class="tagline">Mejorando tu salud a través de tu entorno</div>
         </div>
     </div>
+
+    <div class="main-layout container">
+        <aside class="sidebar-left">
+            <div class="sidebar-title">INFORMACION (1/4)</div>
+            <nav class="sidebar-nav">
+                <ul>
+                    <li class="active"><a href="#">Índice</a></li>
+                    <li><a href="#salud-arquitectura">1. SALUD Y ARQUITECTURA</a></li>
+                    <li><a href="#acustica-salud">ACÚSTICA Y SALUD</a></li>
+                    <li><a href="#diseno-bio">2. DISEÑO BIO</a></li>
+                    <li><a href="#enlaces-interes">3. ENLACES DE INTERÉS</a></li>
+                    <li><a href="#contenidos">4. CONTENIDOS</a></li>
+                    <ul class="submenu">
+                        <li><a href="#arq-construccion">ARQUITECTURA Y CONSTRUCCIÓN</a></li>
+                        <li><a href="#acustica">ACÚSTICA</a></li>
+                        <li><a href="#sostenibilidad">SOSTENIBILIDAD</a></li>
+                    </ul>
+                    <li><a href="#recomendaciones">5. RECOMENDACIONES</a></li>
+                    <li><a href="#calendario">6. CALENDARIO</a></li>
+                     <ul class="submenu">
+                        <li><a href="#cursos">CURSOS</a></li>
+                        <li><a href="#ferias">FERIAS</a></li>
+                        <li><a href="#seminarios">SEMINARIOS</a></li>
+                        <li><a href="#reuniones">REUNIONES/MEETINGS</a></li>
+                    </ul>
+                    <li><a href="#actualidad">7. ACTUALIDAD/NOTICIAS BREVES</a></li>
+                    <li><a href="#revistas">8. REVISTAS Y BOLETINES</a></li>
+                    <li><a href="#inspiracion">9. INSPIRACIÓN/CONSEJOS PARA TU VIVIENDA</a></li>
+                    <li><a href="#preguntas">10. PREGUNTAS FRECUENTES</a></li>
+                    <li><a href="#blog">11. BLOG</a></li>
+                </ul>
+            </nav>
+             </aside>
+
+        <main class="content-main">
+            <section id="salud-arquitectura">
+                <h2>1. SALUD Y ARQUITECTURA</h2>
+                <p>La Arquitectura va más allá de diseñar espacios: influye directamente en el bienestar físico y emocional de las personas. Un entorno bien proyectado mejora la calidad del aire, optimiza la luz natural y fomenta la movilidad saludable, reduciendo el estrés y promoviendo la tranquilidad. En LUJDUTOPIA, creamos edificios y espacios que utilizan principios de diseño, materiales sostenibles, tecnologías innovadoras y diseños centrados en el ser humano. Porque creemos que los entornos arquitectónicos deben curar, inspirar y proteger. Descubre cómo podemos transformar tu proyecto en un aliado para la salud.</p>
+            </section>
+
+            <section id="acustica-salud">
+                <h2>ACÚSTICA Y SALUD</h2>
+                <p>El ruido excesivo no solo molesta, sino que perjudica la salud: aumenta el estrés, altera el sueño y reduce la concentración. Una buena acústica arquitectónica es clave para crear espacios tranquilos y confortables, ya sea en viviendas, oficinas o centros sanitarios. En LUJDUTOPIA, integramos soluciones acústicas inteligentes desde la fase de diseño para crear ambientes que inviten a la calma, optimizados para transformar entornos ruidosos en oasis de calma. Porque sabemos que el silencio bien diseñado mejora la calidad de vida. Descubre cómo optimizamos tus espacios para cuidar de quienes los habitan.</p>
+            </section>
+
+            <section id="diseno-bio">
+                <h2>2. DISEÑO BIO</h2>
+                 <p>[Contenido de Diseño Bio visible en la imagen]</p>
+            </section>
+
+             <section id="enlaces-interes">
+                <h2>3. ENLACES DE INTERÉS</h2>
+
+                <h3>ORGANISMOS OFICIALES (VIVIENDA, SALUD Y MEDIO AMBIENTE)</h3>
+                <h4>ESPAÑA</h4>
+                <ul>
+                    <li>Ministerio de Transportes, Movilidad y Agenda Urbana</li>
+                    <li>Ministerio de Sanidad</li>
+                    <li>Ministerio para la Transición Ecológica</li>
+                    <li>Consejo Superior de los Colegios de Arquitectos de España (CSCAE)</li>
+                    <li>Colegio Oficial de Arquitectos de Madrid (COAM)</li>
+                    <li>Concejalía de Vivienda. Ayuntamiento de Madrid</li>
+                </ul>
+
+                <h4>COMUNIDAD DE MADRID</h4>
+                <ul>
+                    <li>Consejería de Vivienda y Administración Local</li>
+                    <li>Consejería de Sanidad</li>
+                    <li>Consejería de Medio Ambiente, Agricultura y Interior</li>
+                </ul>
+
+                 <h4>COMUNIDAD DE ANDALUCÍA (COSTA DEL SOL - MÁLAGA)</h4>
+                <ul>
+                    <li>Consejería de Fomento, Infraestructuras, Ordenación y Suelo</li>
+                    <li>Consejería de Salud y Consumo</li>
+                    <li>Consejería de Agricultura, Ganadería, Pesca y Desarrollo Sostenible</li>
+                </ul>
+
+                 <h4>COMUNIDAD VALENCIANA (COSTA BLANCA - ALICANTE)</h4>
+                 <ul>
+                    <li>Conselleria de Vivienda y Arquitectura Bioclimática</li>
+                    <li>Conselleria de Sanidad Universal y Salud Pública</li>
+                    <li>Conselleria de Agricultura, Desarrollo Rural, Emergencia Climática y Transición Ecológica</li>
+                 </ul>
+
+                 <h4>ISLAS BALEARES</h4>
+                 <ul>
+                    <li>Conselleria de Territorio, Energía y Movilidad</li>
+                    <li>Conselleria de Salud y Consumo</li>
+                    <li>Conselleria de Medio Ambiente y Territorio</li>
+                 </ul>
+
+                 <h4>ISLAS CANARIAS</h4>
+                 <ul>
+                    <li>Consejería de Obras Públicas, Vivienda y Movilidad</li>
+                    <li>Consejería de Sanidad</li>
+                    <li>Consejería de Transición Ecológica y Planificación Territorial</li>
+                 </ul>
+            </section>
+
+            <section id="normas">
+                <h2>3. ENLACES DE INTERÉS (cont.)</h2>
+                <h3>NORMATIVA</h3>
+                <ul>
+                    <li>Ley de Suelo</li>
+                    <li>Ley de la Ordenación de la Edificación</li>
+                    <li>Código Técnico de la Edificación</li>
+                    <li>Código Estructural</li>
+                    <li>Accesibilidad: Real Decreto 163/2023</li>
+                    <li>Ley del Ruido</li>
+                    <li>Evaluación y Protección contra la Contaminación Acústica y Térmica (DB-HR)</li>
+                    <li>Ordenanza General de Protección del Medio Ambiente Urbano. Ayuntamiento de Madrid</li>
+                </ul>
+
+                <h3>ARQUITECTURA Y SALUD</h3>
+                <ul>
+                    <li>Vivienda y Salud. Directrices de la OMS. WHO Housing and health guidelines.</li>
+                    <li>Recomendaciones de diseño para el bienestar (AIA.org). Design for Well-being.</li>
+                    <li>Guía básica de materiales para el uso de la vivienda (AECOM). Materials Pledge Starter Guide.</li>
+                    <li>Edificios Saludables (Harvard.edu). Healthy Buildings.</li>
+                    <li>Recomendaciones saludables en arquitectura (Wellcertified). Well Certified.</li>
+                </ul>
+            </section>
+             </main>
+
+        <aside class="sidebar-right">
+            <div class="sidebar-image">
+                <img src="img/ChatGPT Image Apr 18, 2025, 03_39_07 AM_25%peque_web-1.jpg" alt="Imagen lateral derecha 1">
+            </div>
+             <div class="sidebar-image">
+                <img src="placeholder-right-2.jpg" alt="Imagen lateral derecha 2">
+            </div>
+             <div class="sidebar-image">
+                <img src="placeholder-right-3.jpg" alt="Imagen lateral derecha 3">
+            </div>
+            </aside>
+    </div>
+
+    <footer>
+        </footer>
 </body>
 </html>
