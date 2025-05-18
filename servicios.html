@@ -1,125 +1,251 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Servicios | LJUDTOPIA</title>
-  <link rel="stylesheet" href="css/unified-styles.css">
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
-  <style>
-    body {
-      font-family: "Malgun Gothic", "Noto Sans KR", "Segoe UI", sans-serif;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Servicios - LJUDTOPIA - Arquitectura · Bienestar · Salud</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-  <header class="nav-top">
-    <div class="logo">
-      <img src="img/logo.png" alt="LJUDTOPIA logo">
-      <p>Mejoramos tu salud a través de tu entorno</p>
-    </div>
-    <nav>
-      <ul>
-        <li><a href="index.html">INICIO</a></li>
-        <li><a href="servicios.html">SERVICIOS</a></li>
-        <li><a href="info.html">INFO</a></li>
-        <li><a href="conceptos.html">CONCEPTOS</a></li>
-        <li><a href="svenska.html">TJÄNSTER (SVENSKA)</a></li>
-        <li><a href="english.html">SERVICES (ENGLISH)</a></li>
-        <li><a href="mapa-web.html">MAPA WEB</a></li>
-      </ul>
+    <!-- Header Section -->
+    <header class="site-header">
+        <div class="container">
+            <div class="logo">
+                <a href="index.html">
+                    <h1>LJUDTOPIA<span>.com</span></h1>
+                    <p class="tagline">ARQUITECTURA · BIENESTAR · SALUD</p>
+                </a>
+            </div>
+            
+            <!-- Language Selector -->
+            <div class="language-selector">
+                <a href="index.html" class="active"><img src="img/flag-spain.png" alt="Español"></a>
+                <a href="tjänster.html"><img src="img/flag-sweden.png" alt="Svenska"></a>
+                <a href="services.html"><img src="img/flag-uk.png" alt="English"></a>
+                <a href="deutsch.html"><img src="img/flag-germany.png" alt="Deutsch"></a>
+            </div>
+            
+            <!-- Mobile Menu Toggle -->
+            <div class="menu-toggle">
+                <span></span>
+            </div>
+        </div>
+    </header>
+    
+    <!-- Navigation Menu -->
+    <nav class="main-nav">
+        <div class="container">
+            <ul>
+                <li><a href="index.html">INICIO</a></li>
+                <li class="active"><a href="servicios.html">SERVICIOS</a></li>
+                <li><a href="referencias.html">REFERENCIAS</a></li>
+                <li><a href="tjänster.html">TJÄNSTER<span>(SVENSKA)</span></a></li>
+                <li><a href="services.html">SERVICES<span>(ENGLISH)</span></a></li>
+            </ul>
+        </div>
     </nav>
-  </header>
-
-  <main>
-    <aside class="sidebar">
-      <h2>SERVICIOS (1/2)</h2>
-      <ul class="indice">
-        <li>1. PROYECTOS DE ARQUITECTURA</li>
-        <li>2. DIRECCIÓN DE OBRA</li>
-        <li>3. ESTUDIOS Y PATOLOGÍAS</li>
-        <li>4. CONSTRUCCIÓN SOSTENIBLE</li>
-        <li>5. ACÚSTICA EN LA EDIFICACIÓN</li>
-        <li>6. TRÁMITES URBANÍSTICOS</li>
-        <li>7. INVERSORES</li>
-        <li>8. INFORMES TÉCNICOS</li>
-        <li>9. CERTIFICADOS ENERGÉTICOS</li>
-        <li>10. MODELADO BIM</li>
-        <li>11. COORDINACIÓN TÉCNICA</li>
-        <li>12. CASOS HABITUALES</li>
-      </ul>
-      <img src="img/servicios.jpg" alt="Servicios Ljudtopia">
-    </aside>
-
-    <section class="contenido">
-      <h1>TODA LA AYUDA TÉCNICA QUE NECESITAS</h1>
-      <p>Te ofrecemos toda la ayuda técnica que necesitas. Desde el consejo experto para estudiar la estrategia de tu proyecto hasta la entrega de tu proyecto finalizado.</p>
-
-      <h2>1. PROYECTOS INTEGRALES DE ARQUITECTURA</h2>
-      <ul>
-        <li>Obra nueva</li>
-        <li>Ampliaciones</li>
-        <li>Reformas</li>
-        <li>Rehabilitación</li>
-        <li>Cambios de uso</li>
-        <li>Licencias municipales</li>
-        <li>Accesibilidad / supresión de barreras arquitectónicas</li>
-      </ul>
-
-      <h2>2. DIRECCIÓN DE OBRA Y CONTROL DE CALIDAD</h2>
-      <p>Tenemos una amplia experiencia en la dirección de obras así como de todo el proceso constructivo.</p>
-
-      <h2>3. ESTUDIOS Y SOLUCIONES DE PATOLOGÍA CONSTRUCTIVA</h2>
-
-      <h2>4. CONSTRUCCIÓN EN SOSTENIBILIDAD</h2>
-      <p>Materiales, eficiencia, certificados</p>
-
-      <h2>5. PROYECTOS DE ACÚSTICA EN LA EDIFICACIÓN</h2>
-      <ul>
-        <li>Asesoría de estrategia acústica</li>
-        <li>Insonorización</li>
-        <li>Aislamiento acústico</li>
-        <li>Acondicionamiento acústico (expertos en locales)</li>
-        <li>Materiales acústicos</li>
-      </ul>
-
-      <h2>6. LEGALIZACIONES Y TRÁMITES URBANÍSTICOS</h2>
-
-      <h2>7. ASESORAMIENTO TÉCNICO PARA INVERSORES</h2>
-
-      <h2>8. INFORMES TÉCNICOS</h2>
-      <ul>
-        <li>Constructivo / estructural</li>
-        <li>Acústico</li>
-        <li>Informe pericial</li>
-        <li>Dictamen</li>
-        <li>ITE</li>
-        <li>IEE</li>
-      </ul>
-
-      <h2>9. CERTIFICADOS ENERGÉTICOS</h2>
-
-      <h2>10. MODELADO BIM Y GESTIÓN DIGITAL</h2>
-
-      <h2>11. COORDINACIÓN DE EQUIPOS MULTIDISCIPLINARES</h2>
-
-      <h2>12. CASOS HABITUALES RELACIONADOS CON EL RUIDO</h2>
-      <ul>
-        <li>Ruido de vecinos (impacto y aire)</li>
-        <li>Ruido exterior (fachadas y ventanas)</li>
-        <li>Ruido de instalaciones</li>
-        <li>Ruido en rehabilitaciones y reformas</li>
-        <li>Acondicionamiento acústico interno</li>
-        <li>Ruido en comunidades de vecinos</li>
-      </ul>
-    </section>
-  </main>
-
-  <footer>
-    <p>+34 667.817.991 | <a href="mailto:info@ljudtopia.com">info@ljudtopia.com</a></p>
-    <p><a href="#">AVISO LEGAL</a> / <a href="#">POLÍTICA DE PRIVACIDAD</a> / <a href="#">POLÍTICA DE COOKIES</a> / <a href="#">CONFIGURACIÓN DE COOKIES</a></p>
-    <p>Copyright LJUDTOPIA.com, 2025. All rights reserved.</p>
-  </footer>
-  <script src="js/servicios.js"></script>
+    
+    <!-- Main Content -->
+    <main>
+        <div class="sidebar">
+            <!-- Sidebar images -->
+            <div class="sidebar-image">
+                <img src="img/sidebar-servicios.jpg" alt="Proyecto arquitectónico">
+            </div>
+            <div class="sidebar-nav">
+                <a href="servicios.html" class="active">SERVICIOS</a>
+            </div>
+        </div>
+        
+        <div class="content-area">
+            <!-- Services section -->
+            <section class="servicios">
+                <h2>SERVICIOS</h2>
+                
+                <!-- Value Added section -->
+                <div class="valor-proyecto">
+                    <h3>AÑADIMOS VALOR A TU PROYECTO</h3>
+                    <p>Con más de 30 años de experiencia en el sector, nuestro trabajo transforma tus proyectos arquitectónicos en inversiones inteligentes.</p>
+                    <p>Cada diseño que realizamos no sólo cumple con su función estética y técnica, sino que incrementa el valor patrimonial y la rentabilidad futura de su propiedad.</p>
+                    
+                    <h4>¿Por qué nuestra experiencia se traduce en mayor valor para su proyecto?</h4>
+                    <ul class="value-points">
+                        <li><strong>Optimización de costes:</strong> Evitamos sobreprecios con planificación precisa y soluciones constructivas eficientes.</li>
+                        <li><strong>Calidad certificada:</strong> Materiales y técnicas que garantizan durabilidad y reducen gastos de mantenimiento.</li>
+                        <li><strong>Plusvalía asegurada:</strong> Diseños adaptados a las demandas del mercado, mejorando el atractivo comercial o residencial.</li>
+                        <li><strong>Cumplimiento normativo:</strong> Evitamos riesgos y costosas modificaciones durante la obra.</li>
+                    </ul>
+                    
+                    <p>Trabajamos para clientes nacionales e internacionales, aplicando soluciones probadas que aseguran el éxito de su inversión a corto y largo plazo.</p>
+                </div>
+                
+                <!-- Method section -->
+                <div class="metodo-trabajo">
+                    <h3>NUESTRO MÉTODO DE TRABAJO, GARANTÍA DE EXCELENCIA</h3>
+                    <ul class="method-points">
+                        <li>- Transparencia en cada fase</li>
+                        <li>- Ahorro de tiempo y recursos</li>
+                        <li>- Resultados predecibles y de alto estándar</li>
+                    </ul>
+                </div>
+                
+                <!-- Sustainability section -->
+                <div class="sostenibilidad">
+                    <h3>SOSTENIBILIDAD EN EL DISEÑO ARQUITECTÓNICO</h3>
+                    <p>En nuestros proyectos, la sostenibilidad no es un añadido, sino el fundamento de cada uno de ellos.</p>
+                    <p>Resultado: Proyectos que superan expectativas, con menos estrés y mayor rentabilidad para el cliente.</p>
+                </div>
+                
+                <!-- Services List -->
+                <div class="lista-servicios">
+                    <h3>1. PROYECTOS INTEGRALES DE ARQUITECTURA</h3>
+                    <div class="service-columns">
+                        <div class="column">
+                            <ul>
+                                <li>· OBRA NUEVA / NUEVA CONSTRUCCIÓN</li>
+                                <li>· AMPLIACIONES</li>
+                                <li>· REFORMAS</li>
+                                <li>· REHABILITACIÓN</li>
+                            </ul>
+                        </div>
+                        <div class="column">
+                            <ul>
+                                <li>· CAMBIOS DE USO</li>
+                                <li>· TRÁMITES Y LICENCIAS MUNICIPALES</li>
+                                <li>· DECLARACIÓN RESPONSABLE URBANÍSTICA</li>
+                                <li>· ACCESIBILIDAD / SUPRESIÓN DE BARRERAS ARQUITECTÓNICAS</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <h3>2. DIRECCIÓN DE OBRA Y CONTROL DE CALIDAD</h3>
+                    <h3>3. COORDINACIÓN DE PROYECTOS DE SEGURIDAD Y SALUD EN LA CONSTRUCCIÓN</h3>
+                    <h3>4. PATOLOGÍA CONSTRUCTIVA (REPARACIÓN DE LESIONES EN LOS EDIFICIOS)</h3>
+                    <h3>5. CONSULTORÍA DE EFICIENCIA ENERGÉTICA Y SOSTENIBILIDAD</h3>
+                    
+                    <div class="acustica-servicios">
+                        <h3>6. PROYECTOS DE ACÚSTICA EN LA EDIFICACIÓN</h3>
+                        <p>Para todo tipo de edificios y locales, desde viviendas a locales comerciales, restaurantes, cafeterías, etc.</p>
+                        <ul>
+                            <li>· ASESORÍA DE ESTRATEGIA ACÚSTICA</li>
+                            <li>· INSONORIZACIÓN</li>
+                            <li>· AISLAMIENTO ACÚSTICO</li>
+                            <li>· MATERIALES ACÚSTICOS</li>
+                            <li>· ACONDICIONAMIENTO ACÚSTICO</li>
+                        </ul>
+                        
+                        <div class="acustica-expertise">
+                            <h4>EXPERTOS EN DISEÑO ACÚSTICO DE LOCALES</h4>
+                            <p>Disponemos de la base de datos más grande de soluciones acústicas de locales con más de 150 casos de éxito en el acondicionamiento acústico, poniendo a tu disposición el abanico más grande de soluciones, dónde poder elegir la solución que mejor se adapte a tu idea de proyecto y a tu presupuesto.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- List of other services from next pages -->
+                    <h3>7. LEGALIZACIONES Y TRÁMITES URBANÍSTICOS</h3>
+                    <h3>8. INFORMES TÉCNICOS</h3>
+                    <ul>
+                        <li>CONSTRUCTIVO / ESTRUCTURAL</li>
+                        <li>ACÚSTICO</li>
+                        <li>INFORME PERICIAL</li>
+                        <li>DICTAMEN</li>
+                        <li>INSPECCIÓN TÉCNICA DE EDIFICIOS (I.T.E)</li>
+                        <li>INFORME DE EVALUACIÓN DEL EDIFICIO (I.E.E)</li>
+                    </ul>
+                    
+                    <h3>9. CERTIFICADOS</h3>
+                    <ul>
+                        <li>CERTIFICADO ENERGÉTICO (Tanto de viviendas como de edificios)</li>
+                        <li>CERTIFICADO DE VIABILIDAD TÉCNICA</li>
+                        <li>CERTIFICADO DE VIABILIDAD GEOMÉTRICA</li>
+                    </ul>
+                    
+                    <h3>10. MODELADO BIM Y GESTIÓN DIGITAL DE PROYECTOS</h3>
+                    <h3>11. VALORACIONES Y ESTUDIOS DE VIABILIDAD</h3>
+                    <p>ASESORAMIENTO TÉCNICO PARA INVERSORES NACIONALES Y EXTRANJEROS</p>
+                    
+                    <div class="soluciones-ruido">
+                        <h3>12. CASOS HABITUALES QUE SOLUCIONAMOS RELACIONADOS CON EL RUIDO</h3>
+                        <div class="noise-problems">
+                            <div class="problem">
+                                <h4>1. RUIDO ENTRE VECINOS (TRANSMISIÓN POR IMPACTO Y TRANSMISIÓN AÉREA)</h4>
+                                <ul>
+                                    <li>Ruido de pisadas y arrastre de muebles (transmisión por forjados).</li>
+                                    <li>Conversaciones, TV o música (paredes sin aislamiento o con aislamiento ineficiente).</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="problem">
+                                <h4>2. RUIDO EXTERIOR (FACHADAS Y VENTANAS)</h4>
+                                <ul>
+                                    <li>Tráfico, obras o bares (aislamiento deficiente en ventanas y muros).</li>
+                                    <li>Ruido aéreo (aviones, trenes) en zonas expuestas.</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="problem">
+                                <h4>3. RUIDO DE INSTALACIONES (Interiores y exteriores al edificio)</h4>
+                                <ul>
+                                    <li>Ascensores, tuberías, bombas de calor o sistemas de climatización.</li>
+                                    <li>Vibraciones de equipos mecánicos (calderas, ventilación).</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="problem">
+                                <h4>4. RUIDO EN REHABILITACIONES Y REFORMAS</h4>
+                                <ul>
+                                    <li>Mejora acústica en suelos y paredes (para cumplir con la normativa vigente (CTE DB-HR, ordenanzas municipales, Ley del ruido, etc)</li>
+                                    <li>Problemas en paredes divisorias entre viviendas (tabiquería insuficiente).</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="problem">
+                                <h4>5. ACONDICIONAMIENTO ACÚSTICO</h4>
+                                <ul>
+                                    <li>Mejora de las condiciones acústicas de comercios de hostelería (restaurantes, cafeterías, bares, etc), evitando problemas de exposiciones de larga duración a ruidos perjudiciales para personal del negocio como para clientes.</li>
+                                    <li>Eco y reverberación en espacios amplios (salones, sótanos).</li>
+                                    <li>Estudios de grabación o salas de ensayo (tratamiento de ondas).</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="problem">
+                                <h4>6. RUIDO EN COMUNIDADES DE VECINOS</h4>
+                                <ul>
+                                    <li>Conflictos por locales comerciales o gimnasios (soluciones para usos mixtos).</li>
+                                    <li>Cumplimiento de la Ley de Propiedad Horizontal (niveles de ruido admisibles).</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Contact CTA -->
+                <div class="cta-presupuesto">
+                    <h3>PRESUPUESTO A MEDIDA</h3>
+                    <p>Contáctanos hoy mismo en: <a href="mailto:info@ljudtopia.com">info@ljudopia.com</a> y te facilitamos en el plazo de 24h un presupuesto para tu idea de proyecto o una orientación gratuita para el problema que se te haya presentado.</p>
+                </div>
+            </section>
+        </div>
+    </main>
+    
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-nav">
+                <ul>
+                    <li><a href="index.html">INICIO</a></li>
+                    <li><a href="servicios.html">SERVICIOS</a></li>
+                    <li><a href="tjänster.html">TJÄNSTER (CONTENIDO EN SUECO)</a></li>
+                    <li><a href="services.html">SERVICES (CONTENIDO EN INGLÉS)</a></li>
+                </ul>
+            </div>
+            <div class="copyright">
+                <p>Copyright LJUDTOPIA.com, 2025</p>
+                <p>All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <script src="js/main.js"></script>
 </body>
 </html>
