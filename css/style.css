@@ -177,6 +177,13 @@ img {
     flex-direction: column;
     color: #fff;
     text-decoration: none;
+    align-items: center;
+}
+
+.logo-img {
+    max-height: 60px;
+    width: auto;
+    margin-bottom: 5px;
 }
 
 .logo h1 {
@@ -286,12 +293,60 @@ main {
     min-height: calc(100vh - 150px);
 }
 
+/* Forzar fondo azul en main para la página de referencias */
+.referencias-page main {
+    background-color: var(--dark-blue) !important;
+    min-height: 100vh !important;
+}
+
 .sidebar {
     width: 240px;
     background-color: var(--dark-blue);
     color: #fff;
     display: flex;
     flex-direction: column;
+    min-height: calc(100vh - 150px); /* Altura mínima para ocupar la pantalla */
+}
+
+/* Forzar color de fondo azul en toda la página de referencias */
+.referencias-page main {
+    background-color: var(--dark-blue) !important;
+}
+
+.referencias-page .sidebar {
+    min-height: 100vh !important;
+    height: 100vh !important;
+    background-color: var(--dark-blue) !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    width: 240px !important;
+    overflow: hidden !important;
+}
+
+.referencias-page .sidebar-image {
+    width: 100% !important;
+    height: 100% !important;
+    overflow: hidden !important;
+    display: block !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    background-color: var(--dark-blue) !important;
+}
+
+.referencias-page .sidebar-image img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    object-position: center !important;
+    display: block !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+/* Asegurar que no hay elementos después del sidebar que causen espacios blancos */
+.referencias-page .sidebar::after,
+.referencias-page .sidebar-image::after {
+    display: none !important;
 }
 
 .sidebar-image {
@@ -305,11 +360,25 @@ main {
     object-fit: cover;
 }
 
-.sidebar-nav {
+/* Estilo específico para la imagen de referencias */
+.referencias .sidebar-image {
+    height: 100%; /* Alto completo del sidebar */
+    overflow: hidden;
+}
+
+.referencias .sidebar-image img {
+    width: 100%; /* Ancho completo del sidebar */
+    height: 100%; /* Alto completo del contenedor */
+    object-fit: cover; /* Cubre todo el espacio disponible */
+}
+
+.referencias .sidebar-nav {
     padding: 20px 0;
     display: flex;
     flex-direction: column;
     align-items: center;
+    flex-shrink: 0; /* No se comprime */
+    background-color: var(--dark-blue);
 }
 
 .sidebar-nav a {
@@ -385,12 +454,14 @@ main {
 }
 
 .team-text p {
-    margin-bottom: 10px;
-    font-size: 14px;
+    margin-bottom: 8px;
+    font-size: 12px; /* Reducido de 14px a 12px */
+    line-height: 1.4; /* Ajustado para mejor legibilidad con texto más pequeño */
 }
 
 .team-text p.bold {
     font-weight: 700;
+    font-size: 13px; /* Ligeramente más grande para el nombre */
 }
 
 .team-photo {
@@ -426,12 +497,25 @@ main {
 .lang-option {
     flex: 1;
     text-align: center;
-    padding: 15px;
     border-radius: 5px;
     transition: all 0.3s ease;
 }
 
 .lang-option:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+.lang-option a {
+    display: block;
+    padding: 15px;
+    text-decoration: none;
+    color: inherit;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+.lang-option a:hover {
+    color: inherit;
     background-color: rgba(0, 0, 0, 0.05);
 }
 
@@ -443,6 +527,7 @@ main {
 .lang-option h4 {
     margin-bottom: 5px;
     font-size: 16px;
+    color: var(--dark-blue);
 }
 
 .lang-option p {
@@ -597,28 +682,24 @@ main {
 }
 
 .health-section {
-    display: flex;
     margin-bottom: 30px;
+    overflow: hidden; /* Contiene los elementos flotados */
 }
 
 .heart-icon {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 150px; /* Ancho del contenedor */
-    flex-shrink: 0; /* Evita que el contenedor se comprima */
+    float: left;
+    width: 30%;
+    margin: 0 20px 20px 0; /* Margen derecho e inferior para separar del texto */
 }
 
 .heart-icon img {
-    max-width: 100%;
-    max-height: 100%;
-    width: auto; /* Mantiene la proporción original */
-    height: auto; /* Mantiene la proporción original */
-    object-fit: contain; /* Asegura que la imagen completa sea visible */
+    width: 100%;
+    height: auto;
+    object-fit: contain;
 }
 
 .health-text {
-    flex: 1;
+    /* El texto fluirá naturalmente alrededor de la imagen flotada */
 }
 
 .health-text p, 
@@ -843,6 +924,12 @@ main {
         height: 150px;
     }
     
+    /* Mantener el comportamiento especial para referencias en responsive */
+    .referencias .sidebar-image {
+        width: 200px; /* Ancho específico en móvil */
+        height: auto;
+    }
+    
     .sidebar-nav {
         flex-direction: row;
         padding: 15px;
@@ -886,11 +973,18 @@ main {
     }
     
     .health-section {
-        flex-direction: column;
+        overflow: visible;
     }
     
     .heart-icon {
-        margin-bottom: 15px;
+        float: none;
+        width: 100%;
+        margin: 20px 0;
+        text-align: center;
+    }
+    
+    .health-text {
+        margin-bottom: 20px;
     }
     
     .footer-nav ul {
