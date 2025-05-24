@@ -1317,3 +1317,153 @@ main {
         font-size: 10px;
     }
 }
+
+/* ===================================
+ * CORRECCIÓN ESPECÍFICA PARA MENÚ MÓVIL
+ * Agregar esta sección al final de style.css
+ * ===================================*/
+
+/* === CORRECCIÓN MENÚ MÓVIL === */
+@media (max-width: 768px) {
+    /* Header móvil */
+    .site-header .container {
+        flex-direction: column;
+        align-items: stretch;
+        position: relative;
+    }
+    
+    .logo {
+        width: 100%;
+        padding: 15px;
+        border-right: none;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        order: 1;
+    }
+    
+    .header-right {
+        width: 100%;
+        padding: 10px 15px;
+        justify-content: space-between;
+        order: 2;
+        position: relative;
+    }
+    
+    .language-selector {
+        margin-right: 0;
+        gap: 8px;
+    }
+    
+    .language-selector img {
+        width: 20px;
+    }
+    
+    /* MOSTRAR menú hamburguesa en móvil */
+    .menu-toggle {
+        display: flex !important;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 30px;
+        height: 21px;
+        cursor: pointer;
+        z-index: 1000;
+    }
+    
+    .menu-toggle span {
+        height: 3px;
+        width: 100%;
+        background-color: #fff;
+        border-radius: 3px;
+        transition: all 0.3s ease;
+    }
+    
+    /* Animación hamburguesa activa */
+    .menu-toggle.active span:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 5px);
+    }
+    
+    .menu-toggle.active span:nth-child(2) {
+        opacity: 0;
+    }
+    
+    .menu-toggle.active span:nth-child(3) {
+        transform: rotate(-45deg) translate(7px, -6px);
+    }
+    
+    /* NAVEGACIÓN MÓVIL */
+    .main-nav {
+        display: none; /* Oculto por defecto */
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: var(--dark-blue);
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        z-index: 999;
+        padding: 0;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+    
+    /* MOSTRAR navegación cuando está activa */
+    .main-nav.active {
+        display: block !important;
+        animation: slideDown 0.3s ease;
+    }
+    
+    @keyframes slideDown {
+        from {
+            opacity: 0;
+            transform: translateY(-10px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+    
+    .main-nav .container {
+        padding: 0 15px;
+        max-width: none;
+    }
+    
+    .main-nav ul {
+        flex-direction: column;
+        align-items: stretch;
+        padding: 15px 0;
+        margin-left: 0 !important;
+    }
+    
+    .main-nav li {
+        margin-right: 0;
+        margin-bottom: 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    
+    .main-nav li:last-child {
+        border-bottom: none;
+    }
+    
+    .main-nav a {
+        font-size: 16px;
+        padding: 15px 20px;
+        display: block;
+        width: 100%;
+        border-radius: 0;
+    }
+    
+    .main-nav a:hover {
+        background-color: rgba(255, 255, 255, 0.1);
+    }
+    
+    /* Línea activa en móvil */
+    .main-nav li.active a:after {
+        display: none;
+    }
+    
+    .main-nav li.active a {
+        background-color: rgba(255, 204, 0, 0.1);
+        color: var(--accent-yellow);
+    }
+}
+
+/* === CORRECCIÓN JAVASCRIPT NECESARIA === */
+/* Agregar este código al final de main.js */
