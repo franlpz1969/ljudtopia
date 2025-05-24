@@ -1,5 +1,5 @@
 /* 
-* Style.css - Versión Corregida para Móviles
+* Style.css - Versión Corregida para Móviles con Logo Alineado
 * Main stylesheet for LJUDTOPIA website
 */
 
@@ -55,19 +55,35 @@ img {
     height: auto;
 }
 
-/* === HEADER === */
+/* === HEADER MODIFICADO === */
 .site-header {
     background-color: var(--dark-blue);
-    padding: 10px 0;
+    padding: 0;
     position: relative;
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .site-header .container {
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
+    align-items: stretch;
+    flex-wrap: nowrap;
+    padding: 0;
+    max-width: none;
+    width: 100%;
+}
+
+/* Logo ocupa el mismo ancho que la sidebar */
+.logo {
+    width: 240px;
+    background-color: var(--dark-blue);
+    padding: 15px 20px;
+    display: flex;
     align-items: center;
-    flex-wrap: wrap;
+    justify-content: center;
+    flex-direction: column;
+    border-right: 1px solid rgba(255, 255, 255, 0.1);
+    flex-shrink: 0;
 }
 
 .logo a {
@@ -76,41 +92,45 @@ img {
     color: #fff;
     text-decoration: none;
     align-items: center;
+    width: 100%;
 }
 
 .logo-img {
-    max-height: 60px;
+    max-height: 80px;
     width: auto;
-    margin-bottom: 5px;
-}
-
-.logo h1 {
-    font-size: 28px;
-    font-weight: 700;
-    letter-spacing: 1px;
-}
-
-.logo span {
-    font-weight: 300;
-    font-size: 0.8em;
+    margin-bottom: 8px;
 }
 
 .logo .tagline {
-    font-size: 14px;
-    color: rgba(255, 255, 255, 0.7);
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.8);
     letter-spacing: 1px;
     text-align: center;
+    margin-top: 5px;
 }
 
+/* Área derecha para selectores de idioma */
+.header-right {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 15px 20px;
+    background-color: var(--dark-blue);
+}
+
+/* Selectores de idioma */
 .language-selector {
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 12px;
+    margin-right: 20px;
 }
 
 .language-selector a {
     opacity: 0.7;
     transition: opacity 0.3s ease;
+    display: block;
 }
 
 .language-selector a:hover,
@@ -123,6 +143,7 @@ img {
     height: auto;
 }
 
+/* Menú toggle */
 .menu-toggle {
     display: none;
     flex-direction: column;
@@ -157,8 +178,15 @@ img {
 /* === NAVIGATION === */
 .main-nav {
     background-color: var(--dark-blue);
-    padding: 0 0 10px;
+    padding: 10px 0;
     width: 100%;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.main-nav .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
 }
 
 .main-nav ul {
@@ -166,6 +194,7 @@ img {
     justify-content: flex-start;
     align-items: center;
     flex-wrap: wrap;
+    margin-left: 240px; /* Alinear con el contenido, no con el logo */
 }
 
 .main-nav li {
@@ -297,7 +326,7 @@ main {
     flex: 1;
     padding: 40px;
     background-color: var(--white);
-    min-width: 0; /* Permite que se comprima en móviles */
+    min-width: 0;
 }
 
 /* === PAGE CONTENT STYLES === */
@@ -955,17 +984,16 @@ main {
         font-size: 14px;
     }
     
-    .site-header {
-        padding: 15px 0;
-    }
-    
     .site-header .container {
-        align-items: flex-start;
+        flex-direction: column;
+        align-items: stretch;
     }
     
     .logo {
-        order: 1;
-        flex: 1;
+        width: 100%;
+        padding: 15px;
+        border-right: none;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     }
     
     .logo-img {
@@ -973,13 +1001,17 @@ main {
     }
     
     .logo .tagline {
-        font-size: 12px;
+        font-size: 10px;
+    }
+    
+    .header-right {
+        padding: 10px 15px;
+        justify-content: space-between;
     }
     
     .language-selector {
-        order: 2;
-        margin-left: auto;
-        margin-right: 15px;
+        margin-right: 0;
+        gap: 8px;
     }
     
     .language-selector img {
@@ -988,7 +1020,6 @@ main {
     
     .menu-toggle {
         display: flex;
-        order: 3;
     }
     
     /* Navegación móvil */
@@ -1020,10 +1051,15 @@ main {
         }
     }
     
+    .main-nav .container {
+        padding: 0 15px;
+    }
+    
     .main-nav ul {
         flex-direction: column;
         align-items: stretch;
-        padding: 15px;
+        padding: 15px 0;
+        margin-left: 0;
     }
     
     .main-nav li {
@@ -1246,4 +1282,38 @@ main {
     }
     
     .sidebar-nav a {
-        font-
+        font-size: 11px;
+        padding: 6px 8px;
+    }
+    
+    .main-nav a {
+        font-size: 14px;
+    }
+    
+    .inicio h2,
+    .servicios h2,
+    .referencias h2 {
+        font-size: 20px;
+    }
+    
+    .sobre-nosotros h3,
+    .valor-proyecto h3 {
+        font-size: 16px;
+    }
+    
+    .arquitectura-salud h3 {
+        font-size: 18px;
+    }
+    
+    .cta-presupuesto h3 {
+        font-size: 16px;
+    }
+    
+    .lang-option h4 {
+        font-size: 14px;
+    }
+    
+    .lang-option p {
+        font-size: 10px;
+    }
+}
