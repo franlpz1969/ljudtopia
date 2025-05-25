@@ -4,17 +4,496 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LJUDTOPIA - Arquitectura · Bienestar · Salud</title>
-    <link rel="stylesheet" href="css/style.css">
+    <style>
+        /* Aquí va todo el CSS corregido - usar el CSS del primer artifact */
+        
+        /* === GLOBAL STYLES === */
+        :root {
+            --dark-blue: #1a2a3a;
+            --blue: #2c3e50;
+            --light-gray: #f5f5f5;
+            --white: #ffffff;
+            --accent-yellow: #ffcc00;
+            --text-dark: #333333;
+            --text-light: #888888;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background: #fff;
+            overflow-x: hidden;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        a {
+            text-decoration: none;
+            color: var(--dark-blue);
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: var(--text-light);
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        /* === HEADER === */
+        .site-header {
+            background-color: var(--dark-blue);
+            padding: 0;
+            position: relative;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .site-header .container {
+            display: flex;
+            justify-content: flex-start;
+            align-items: stretch;
+            flex-wrap: nowrap;
+            padding: 0;
+            max-width: none;
+            width: 100%;
+        }
+
+        .logo {
+            width: 240px;
+            background-color: var(--dark-blue);
+            padding: 15px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            border-right: 1px solid rgba(255, 255, 255, 0.1);
+            flex-shrink: 0;
+        }
+
+        .logo a {
+            display: flex;
+            flex-direction: column;
+            color: #fff;
+            text-decoration: none;
+            align-items: center;
+            width: 100%;
+        }
+
+        .logo-img {
+            max-height: 80px;
+            width: 80px;
+            background: #666;
+            margin-bottom: 8px;
+            border-radius: 5px;
+        }
+
+        .logo .tagline {
+            font-size: 12px;
+            color: rgba(255, 255, 255, 0.8);
+            letter-spacing: 1px;
+            text-align: center;
+            margin-top: 5px;
+        }
+
+        .header-right {
+            flex: 1;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            padding: 15px 20px;
+            background-color: var(--dark-blue);
+        }
+
+        .language-selector {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-right: 20px;
+        }
+
+        .language-selector a {
+            opacity: 0.7;
+            transition: opacity 0.3s ease;
+            display: block;
+        }
+
+        .language-selector a:hover,
+        .language-selector a.active {
+            opacity: 1;
+        }
+
+        .language-selector img {
+            width: 24px;
+            height: 24px;
+            background: #666;
+            border-radius: 2px;
+        }
+
+        /* MENÚ HAMBURGUESA - OCULTO EN DESKTOP */
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 30px;
+            height: 21px;
+            cursor: pointer;
+            z-index: 1000;
+        }
+
+        .menu-toggle span {
+            height: 3px;
+            width: 100%;
+            background-color: #fff;
+            border-radius: 3px;
+            transition: all 0.3s ease;
+        }
+
+        .menu-toggle.active span:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+
+        .menu-toggle.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .menu-toggle.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(7px, -6px);
+        }
+
+        /* === NAVIGATION DESKTOP === */
+        .main-nav {
+            background-color: var(--dark-blue);
+            padding: 10px 0;
+            width: 100%;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .main-nav .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        .main-nav ul {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            flex-wrap: wrap;
+            margin-left: 240px;
+        }
+
+        .main-nav li {
+            margin-right: 30px;
+        }
+
+        .main-nav a {
+            color: #fff;
+            font-size: 14px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            padding: 5px 0;
+            position: relative;
+            display: block;
+        }
+
+        .main-nav a span {
+            font-size: 12px;
+            opacity: 0.7;
+            margin-left: 5px;
+        }
+
+        .main-nav a:hover,
+        .main-nav li.active a {
+            color: var(--accent-yellow);
+        }
+
+        .main-nav li.active a:after {
+            content: '';
+            position: absolute;
+            bottom: -3px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: var(--accent-yellow);
+        }
+
+        /* === MAIN CONTENT === */
+        main {
+            display: flex;
+            min-height: calc(100vh - 150px);
+        }
+
+        .sidebar {
+            width: 240px;
+            background-color: var(--dark-blue);
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            min-height: calc(100vh - 150px);
+            flex-shrink: 0;
+        }
+
+        .sidebar-image {
+            height: 200px;
+            overflow: hidden;
+            background: #555;
+        }
+
+        .sidebar-nav {
+            padding: 20px 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            flex-shrink: 0;
+            background-color: var(--dark-blue);
+        }
+
+        .sidebar-nav a {
+            color: #fff;
+            padding: 10px 15px;
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 14px;
+            letter-spacing: 1px;
+            margin-bottom: 5px;
+            transition: all 0.3s ease;
+        }
+
+        .sidebar-nav a:hover,
+        .sidebar-nav a.active {
+            color: var(--accent-yellow);
+        }
+
+        .content-area {
+            flex: 1;
+            padding: 40px;
+            background-color: var(--white);
+            min-width: 0;
+        }
+
+        .inicio h2 {
+            font-size: 28px;
+            margin-bottom: 20px;
+            color: var(--dark-blue);
+            border-bottom: 2px solid var(--dark-blue);
+            padding-bottom: 10px;
+        }
+
+        /* ==========================================
+         * ESTILOS MÓVILES CRÍTICOS
+         * ==========================================*/
+        @media (max-width: 768px) {
+            body {
+                font-size: 14px;
+            }
+            
+            /* === HEADER MÓVIL === */
+            .site-header .container {
+                flex-direction: column;
+                align-items: stretch;
+                position: relative;
+            }
+            
+            .logo {
+                width: 100%;
+                padding: 15px;
+                border-right: none;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+                order: 1;
+            }
+            
+            .logo-img {
+                max-height: 50px;
+                width: 50px;
+            }
+            
+            .logo .tagline {
+                font-size: 10px;
+            }
+            
+            .header-right {
+                width: 100%;
+                padding: 10px 15px;
+                justify-content: space-between;
+                order: 2;
+                position: relative;
+            }
+            
+            .language-selector {
+                margin-right: 0;
+                gap: 8px;
+            }
+            
+            .language-selector img {
+                width: 20px;
+                height: 20px;
+            }
+            
+            /* === MOSTRAR MENÚ HAMBURGUESA EN MÓVIL === */
+            .menu-toggle {
+                display: flex !important;
+            }
+            
+            /* === NAVEGACIÓN MÓVIL === */
+            .main-nav {
+                display: none; /* Oculto por defecto */
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background-color: var(--dark-blue);
+                border-top: 1px solid rgba(255, 255, 255, 0.1);
+                z-index: 999;
+                padding: 0;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            }
+            
+            /* MOSTRAR navegación cuando está activa */
+            .main-nav.active {
+                display: block !important;
+                animation: slideDown 0.3s ease;
+            }
+            
+            @keyframes slideDown {
+                from {
+                    opacity: 0;
+                    transform: translateY(-10px);
+                }
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+            
+            .main-nav .container {
+                padding: 0 15px;
+                max-width: none;
+            }
+            
+            .main-nav ul {
+                flex-direction: column !important;
+                align-items: stretch !important;
+                padding: 15px 0;
+                margin-left: 0 !important;
+            }
+            
+            .main-nav li {
+                margin-right: 0;
+                margin-bottom: 0;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            }
+            
+            .main-nav li:last-child {
+                border-bottom: none;
+            }
+            
+            .main-nav a {
+                font-size: 16px;
+                padding: 15px 20px;
+                display: block;
+                width: 100%;
+                border-radius: 0;
+            }
+            
+            .main-nav a:hover {
+                background-color: rgba(255, 255, 255, 0.1);
+            }
+            
+            .main-nav li.active a:after {
+                display: none;
+            }
+            
+            .main-nav li.active a {
+                background-color: rgba(255, 204, 0, 0.1);
+                color: var(--accent-yellow);
+            }
+            
+            /* === LAYOUT PRINCIPAL MÓVIL === */
+            main {
+                flex-direction: column;
+            }
+            
+            .sidebar {
+                width: 100%;
+                flex-direction: row;
+                height: auto;
+                min-height: auto;
+            }
+            
+            .sidebar-image {
+                width: 120px;
+                height: 120px;
+                flex-shrink: 0;
+            }
+            
+            .sidebar-nav {
+                flex-direction: row;
+                padding: 15px;
+                align-items: center;
+                flex: 1;
+            }
+            
+            .sidebar-nav a {
+                margin: 0 10px 0 0;
+                font-size: 12px;
+                padding: 8px 12px;
+            }
+            
+            .content-area {
+                padding: 20px 15px;
+            }
+            
+            .inicio h2 {
+                font-size: 24px;
+                margin-bottom: 15px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .logo-img {
+                max-height: 40px;
+                width: 40px;
+            }
+            
+            .sidebar-image {
+                width: 80px;
+                height: 80px;
+            }
+            
+            .inicio h2 {
+                font-size: 20px;
+            }
+        }
+    </style>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- Header Section Modificado -->
+    <!-- Header Section -->
     <header class="site-header">
         <div class="container">
-            <!-- Logo Section - Mismo ancho que sidebar -->
+            <!-- Logo Section -->
             <div class="logo">
                 <a href="index.html">
-                    <img src="img/Logo.jpeg" alt="LJUDTOPIA Logo" class="logo-img">
+                    <div class="logo-img"></div>
                     <p class="tagline">ARQUITECTURA · BIENESTAR · SALUD</p>
                 </a>
             </div>
@@ -23,10 +502,10 @@
             <div class="header-right">
                 <!-- Language Selector -->
                 <div class="language-selector">
-                    <a href="index.html" class="active"><img src="img/flag-spain.png" alt="Español"></a>
-                    <a href="tjänster.html"><img src="img/flag-sweden.png" alt="Svenska"></a>
-                    <a href="services.html"><img src="img/flag-uk.png" alt="English"></a>
-                    <a href="deutsch.html"><img src="img/flag-germany.png" alt="Deutsch"></a>
+                    <a href="index.html" class="active"><div style="width:20px;height:20px;background:#666;border-radius:2px;"></div></a>
+                    <a href="tjänster.html"><div style="width:20px;height:20px;background:#666;border-radius:2px;"></div></a>
+                    <a href="services.html"><div style="width:20px;height:20px;background:#666;border-radius:2px;"></div></a>
+                    <a href="deutsch.html"><div style="width:20px;height:20px;background:#666;border-radius:2px;"></div></a>
                 </div>
                 
                 <!-- Mobile Menu Toggle -->
@@ -56,9 +535,7 @@
     <main>
         <div class="sidebar">
             <!-- Sidebar images -->
-            <div class="sidebar-image">
-                <img src="img/sidebar-1.jpg" alt="Edificio arquitectónico">
-            </div>
+            <div class="sidebar-image"></div>
             <div class="sidebar-nav">
                 <a href="index.html" class="active">INICIO</a>
             </div>
@@ -71,95 +548,131 @@
                 <div class="sobre-nosotros">
                     <h3>SOBRE NOSOTROS</h3>
                     <div class="intro-text">
-                        <p>Somos una oficina de Arquitectura internacional que se dedica a la realización de todo tipo de proyectos arquitectónicos integrales, tanto de obra nueva como de rehabilitación. Especializados en sistemas constructivos avanzados, patología edificatoria y acústica en la edificación, que trabaja bajo los más altos estandares de calidad nacional e internacional para mejorar las condiciones de vida de nuestros clientes, creando ambientes que mejoran la salud de las personas.</p>
-                    </div>
-                    <h3>Expertos en construcción</h3>
-                    <div class="intro-text">
-                        <p>Tenemos una larga trayectoria profesional de más de 25 años en el desarrollo de todo tipo de proyectos ejecutivos de Arquitectura, tanto con sistemas constructivos tradicionales en hormigón, acero, madera, ladrillo, piedra, etc así como con sistemas prefabricados e industrializados, lo cual nos posiciona con una clara ventaja a la hora de prever posibles problemas tanto en el desarrollo como en la ejecución de los mismos, así como en la prevención y la resolución de los complejos problemas derivados de la transmisión del ruido hacia- y en- el interior de viviendas y locales.</p>
-                    </div>
-                    
-                    <!-- Team information -->
-                    <div class="team-info">
-                        <div class="team-text">
-                            <p class="bold">Santiago López Rodríguez</p>
-                            <p>Director y fundador de Ljudtopia.com</p>
-                            <p>Master in Architecture / Arquitecto Superior (UPM-ETSAM, 2003)</p>
-                            <p>Arquitecto, Director de obras, Project Manager, Coordinador de Seguridad y Salud y Proyectista de estructuras edificatorias (konstruktör / builder), en España y Suecia.</p>
-                        </div>
-                        <div class="team-photo">
-                            <img src="img/santiago-lopez.jpg" alt="Santiago López Rodríguez">
-                        </div>
-                    </div>
-                </div>
-
-                
-                <!-- Architecture & Health section -->
-                <div class="arquitectura-salud">
-                    <h3>ARQUITECTURA, ACÚSTICA Y SALUD</h3>
-                    <div class="health-section">
-                        <div class="heart-icon">
-                            <img src="img/casita.jpeg" alt="Salud">
-                        </div>
-                        <div class="health-text">
-                            <p>La Arquitectura nos acompaña durante toda nuestro "dia a dia", yendo más allá del diseño de espacios, influyendo directamente en el bienestar físico y emocional de las personas.</p>
-                            <p>Un entorno bien proyectado, mejora la calidad del aire mediante su circulación controlada, optimiza la luz natural y fomenta la movilidad saludable, reduciendo el estrés y la sensación de agotamiento. En <strong>Ljudtopia</strong>, creamos edificios y espacios que priorizan la salud, integrando materiales sostenibles, tecnologías innovadoras y diseños centrados en el ser humano. Porque creemos que los entornos arquitectónicos deben inspirar, proteger y sanar. Descubre cómo podemos <a href="#">transformar tu proyecto en un aliado para la salud</a>.</p>
-                        </div>
-                    </div>
-                    
-                    <div class="acoustic-section">
-                        <p>El ruido excesivo no sólo molesta, sino que perjudica la salud: aumenta el estrés, altera el sueño y reduce la concentración. <strong>Una buena acústica arquitectónica</strong> es clave para crear espacios tranquilos y confortables, ya sea en viviendas, oficinas o centros sanitarios. En <strong>Ljudtopia</strong>, integramos soluciones acústicas inteligentes, desde materiales absorbentes hasta diseños que minimizan reverberaciones, para transformar entornos ruidosos en oasis de calma.</p>
-                        <p>Porque creemos que el silencio bien diseñado mejora la calidad de vida. Descubre cómo optimizamos tus espacios para <strong>cuidar de quienes los habitan</strong>.</p>
-                    </div>
-                </div>
-                
-                <!-- Contact CTA -->
-                <div class="cta-presupuesto">
-                    <h3>PRESUPUESTO A MEDIDA</h3>
-                    <p>Contáctanos hoy mismo en: <a href="mailto:info@ljudtopia.com">info@ljudtopia.com</a> y te facilitamos en el plazo de 24h un presupuesto para tu idea de proyecto o una orientación gratuita para el problema que se te haya presentado.</p>
-                </div>
-                
-                <!-- Language help section moved here -->
-                <div class="language-help">
-                    <p>Y SI NO TE SIENTES CÓMODO HABLANDO EN ESPAÑOL. CONTACTA CON NOSOTROS Y TE AYUDAMOS CON TU PROYECTO EN TU IDIOMA:</p>
-                    <div class="language-options">
-                        <div class="lang-option swedish">
-                            <a href="tjänster.html">
-                                <img src="img/flag-sweden.png" alt="Svenska">
-                                <h4>VI KAN HJÄLPA DIG PÅ SVENSKA</h4>
-                                <p>(ACCESO A CONTENIDO ESPECÍFICO EN SUECO)</p>
-                            </a>
-                        </div>
-                        <div class="lang-option english">
-                            <a href="services.html">
-                                <img src="img/flag-uk.png" alt="English">
-                                <h4>WE CAN HELP YOU IN ENGLISH</h4>
-                                <p>(ACCESO A CONTENIDO ESPECÍFICO EN INGLÉS)</p>
-                            </a>
-                        </div>
+                        <p>Somos una oficina de Arquitectura internacional que se dedica a la realización de todo tipo de proyectos arquitectónicos integrales, tanto de obra nueva como de rehabilitación. Especializados en sistemas constructivos avanzados, patología edificatoria y acústica en la edificación...</p>
+                        
+                        <p><strong>PRUEBA EL MENÚ MÓVIL:</strong></p>
+                        <p>- En escritorio: el menú se ve horizontal normalmente</p>
+                        <p>- En móvil (menos de 768px): aparece el botón hamburguesa</p>
+                        <p>- Click en hamburguesa: se despliega el menú vertical</p>
+                        <p>- Click fuera o en un enlace: se cierra automáticamente</p>
+                        
+                        <p>Prueba redimensionando la ventana del navegador o usando las herramientas de desarrollador para simular un dispositivo móvil.</p>
                     </div>
                 </div>
             </section>
         </div>
     </main>
     
-    <!-- Footer -->
-    <footer class="site-footer">
-        <div class="container">
-            <div class="footer-nav">
-                <ul>
-                    <li><a href="index.html">INICIO</a></li>
-                    <li><a href="servicios.html">SERVICIOS</a></li>
-                    <li><a href="tjänster.html">TJÄNSTER (CONTENIDO EN SUECO)</a></li>
-                    <li><a href="services.html">SERVICES (CONTENIDO EN INGLÉS)</a></li>
-                </ul>
-            </div>
-            <div class="copyright">
-                <p>Copyright LJUDTOPIA.com, 2025</p>
-                <p>All rights reserved.</p>
-            </div>
-        </div>
-    </footer>
-    
-    <script src="js/main.js"></script>
+    <script>
+        // Aquí va todo el JavaScript corregido - usar el JS del segundo artifact
+        
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('LJUDTOPIA JavaScript inicializado');
+            
+            // === MENÚ MÓVIL === 
+            const menuToggle = document.querySelector('.menu-toggle');
+            const mainNav = document.querySelector('.main-nav');
+            
+            console.log('Menu toggle encontrado:', menuToggle);
+            console.log('Main nav encontrado:', mainNav);
+            
+            if (menuToggle && mainNav) {
+                // Click en el botón hamburguesa
+                menuToggle.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    
+                    console.log('Menu toggle clickeado');
+                    
+                    // Toggle active class en el botón (para animación hamburguesa)
+                    menuToggle.classList.toggle('active');
+                    
+                    // Toggle active class en navegación (para mostrar/ocultar menú)
+                    mainNav.classList.toggle('active');
+                    
+                    // Prevenir scroll del body cuando el menú está abierto
+                    if (mainNav.classList.contains('active')) {
+                        document.body.style.overflow = 'hidden';
+                        console.log('Menú abierto');
+                    } else {
+                        document.body.style.overflow = '';
+                        console.log('Menú cerrado');
+                    }
+                });
+                
+                console.log('Event listener del menú hamburguesa añadido');
+            } else {
+                console.error('No se encontraron elementos del menú móvil');
+            }
+            
+            // === CERRAR MENÚ AL HACER CLICK FUERA ===
+            document.addEventListener('click', function(event) {
+                // Si el click no es en el menú ni en el botón hamburguesa
+                if (!event.target.closest('.main-nav') && 
+                    !event.target.closest('.menu-toggle') && 
+                    mainNav && mainNav.classList.contains('active')) {
+                    
+                    console.log('Click fuera del menú - cerrando');
+                    
+                    mainNav.classList.remove('active');
+                    if (menuToggle) {
+                        menuToggle.classList.remove('active');
+                    }
+                    document.body.style.overflow = '';
+                }
+            });
+            
+            // === CERRAR MENÚ AL HACER CLICK EN ENLACES (MÓVIL) ===
+            const navLinks = document.querySelectorAll('.main-nav a');
+            navLinks.forEach(link => {
+                link.addEventListener('click', function() {
+                    // Solo en móvil (768px o menos)
+                    if (window.innerWidth <= 768) {
+                        console.log('Link del menú clickeado en móvil - cerrando menú');
+                        
+                        if (mainNav) {
+                            mainNav.classList.remove('active');
+                        }
+                        if (menuToggle) {
+                            menuToggle.classList.remove('active');
+                        }
+                        document.body.style.overflow = '';
+                    }
+                });
+            });
+            
+            // === MANEJAR REDIMENSIÓN DE VENTANA ===
+            window.addEventListener('resize', function() {
+                if (window.innerWidth > 768) {
+                    // Reset del menú móvil en desktop
+                    console.log('Redimensionado a desktop - reseteando menú móvil');
+                    
+                    if (mainNav) {
+                        mainNav.classList.remove('active');
+                    }
+                    if (menuToggle) {
+                        menuToggle.classList.remove('active');
+                    }
+                    document.body.style.overflow = '';
+                }
+            });
+            
+            // === FUNCIÓN DE DEBUG ===
+            function debugMenuStatus() {
+                console.log('=== DEBUG MENU STATUS ===');
+                console.log('Menu toggle element:', menuToggle);
+                console.log('Main nav element:', mainNav);
+                console.log('Menu toggle active:', menuToggle ? menuToggle.classList.contains('active') : 'N/A');
+                console.log('Main nav active:', mainNav ? mainNav.classList.contains('active') : 'N/A');
+                console.log('Window width:', window.innerWidth);
+                console.log('========================');
+            }
+            
+            // Mostrar debug al cargar
+            debugMenuStatus();
+            
+            console.log('Inicialización completa de LJUDTOPIA JavaScript');
+        });
+    </script>
 </body>
 </html>
