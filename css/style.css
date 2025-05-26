@@ -1,5 +1,5 @@
-/* 
-* Style.css - Versión Corregida para Móviles con Menú Hamburguesa Funcionando
+/*
+* Style.css - Versión Corregida Final para Móviles con Menú Hamburguesa Funcionando
 * Main stylesheet for LJUDTOPIA website
 */
 
@@ -26,7 +26,7 @@ body {
     line-height: 1.6;
     color: var(--text-dark);
     background: #fff;
-    overflow-x: hidden;
+    overflow-x: hidden; /* Previene scroll horizontal */
 }
 
 .container {
@@ -59,7 +59,7 @@ img {
 .site-header {
     background-color: var(--dark-blue);
     padding: 0;
-    position: relative;
+    position: relative; /* Importante para el menú móvil */
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
@@ -109,17 +109,17 @@ img {
     margin-top: 5px;
 }
 
-/* Área derecha para selectores de idioma */
+/* Área derecha para selectores de idioma y hamburguesa */
 .header-right {
     flex: 1;
     display: flex;
-    justify-content: flex-end;
+    justify-content: flex-end; /* Alinea los elementos a la derecha */
     align-items: center;
     padding: 15px 20px;
     background-color: var(--dark-blue);
 }
 
-/* Selectores de idioma */
+/* Selectores de idioma (visible en desktop) */
 .language-selector {
     display: flex;
     align-items: center;
@@ -143,15 +143,15 @@ img {
     height: auto;
 }
 
-/* Menú toggle - OCULTO EN DESKTOP */
+/* Menú toggle (hamburguesa) - OCULTO EN DESKTOP, MOSTRADO EN MOBILE */
 .menu-toggle {
-    display: none;
+    display: none; /* Oculto por defecto en desktop */
     flex-direction: column;
     justify-content: space-between;
     width: 30px;
     height: 21px;
     cursor: pointer;
-    z-index: 1000;
+    z-index: 1002; /* Más alto que el menú y el header */
 }
 
 .menu-toggle span {
@@ -162,7 +162,7 @@ img {
     transition: all 0.3s ease;
 }
 
-/* Animación del menú hamburguesa */
+/* Animación de la 'X' para el menú hamburguesa */
 .menu-toggle.active span:nth-child(1) {
     transform: rotate(45deg) translate(5px, 5px);
 }
@@ -181,6 +181,10 @@ img {
     padding: 10px 0;
     width: 100%;
     border-top: 1px solid rgba(255, 255, 255, 0.1);
+    /* Estilos para desktop */
+    display: block; /* Asegura que se muestre en desktop */
+    position: relative; /* Ocupa el flujo normal */
+    z-index: 998; /* Por debajo del header, pero por encima del contenido */
 }
 
 .main-nav .container {
@@ -236,7 +240,7 @@ img {
 /* === MAIN CONTENT STRUCTURE === */
 main {
     display: flex;
-    min-height: calc(100vh - 150px);
+    min-height: calc(100vh - 150px); /* 150px es la altura combinada de header y footer aprox. */
 }
 
 .referencias-page main {
@@ -327,7 +331,7 @@ main {
     min-width: 0;
 }
 
-/* === RESTO DE ESTILOS (sin cambios) === */
+/* === RESTO DE ESTILOS (sin cambios, exceptuando media queries) === */
 .inicio h2,
 .servicios h2,
 .referencias h2,
@@ -625,13 +629,13 @@ main {
     object-fit: contain;
 }
 
-.health-text p, 
+.health-text p,
 .acoustic-section p {
     margin-bottom: 15px;
     text-align: justify;
 }
 
-.health-text strong, 
+.health-text strong,
 .acoustic-section strong {
     color: var(--dark-blue);
 }
@@ -646,7 +650,7 @@ main {
 }
 
 /* === LANGUAGE PAGES STYLES === */
-.english-content, 
+.english-content,
 .swedish-content {
     padding-bottom: 40px;
 }
@@ -941,208 +945,172 @@ main {
 
 /* === MEDIA QUERIES === */
 
-/* Tablet styles */
+/* Tablet styles (Desktop intermedio) */
 @media (max-width: 992px) {
     .container {
         padding: 0 10px;
     }
-    
+
     .content-area {
         padding: 30px 20px;
     }
-    
+
     .service-columns {
         flex-direction: column;
         gap: 10px;
     }
-    
+
     .references-columns {
         flex-direction: column;
         gap: 20px;
     }
-    
+
     .other-works-list li {
         flex: 0 0 100%;
     }
-    
+
     .team-info {
         flex-direction: column;
     }
-    
+
     .team-text {
         margin-bottom: 20px;
         padding-right: 0;
     }
+
+    /* Ajustes específicos para que el menú horizontal funcione bien en tablets */
+    .main-nav ul {
+        justify-content: center; /* Centra los elementos de navegación */
+        margin-left: 0; /* Elimina el margen del logo */
+    }
+
+    .main-nav li {
+        margin-right: 20px; /* Reduce un poco el espacio entre elementos */
+    }
+
+    .main-nav a {
+        font-size: 13px; /* Ajusta el tamaño de la fuente si es necesario */
+    }
 }
 
-/* ==========================================
- * ESTILOS MÓVILES CORREGIDOS
- * ==========================================*/
+/* ================================================================\
+ * ESTILOS MÓVILES (hasta 768px)
+ * ================================================================*/
 @media (max-width: 768px) {
     body {
         font-size: 14px;
     }
-    
+
     /* === HEADER MÓVIL === */
     .site-header .container {
-        flex-direction: column;
-        align-items: stretch;
-        position: relative;
+        justify-content: space-between; /* Logo a la izquierda, hamburguesa y banderas a la derecha */
+        padding: 0 15px;
+        flex-direction: row; /* Vuelve a flex-direction row para que logo y derecha estén en fila */
+        align-items: center; /* Centra verticalmente */
+        height: auto; /* Permite que la altura se ajuste */
     }
-    
+
     .logo {
-        width: 100%;
-        padding: 15px;
+        width: auto; /* El logo toma el ancho que necesita */
+        padding: 10px 0; /* Reduce el padding */
         border-right: none;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        order: 1;
+        flex-shrink: 1; /* Permite que el logo se encoja si es necesario */
     }
-    
+
     .logo-img {
-        max-height: 50px;
+        max-height: 50px; /* Reduce el tamaño del logo */
+        margin-bottom: 0; /* Elimina margen inferior */
     }
-    
+
     .logo .tagline {
-        font-size: 10px;
+        display: none; /* Oculta el tagline en móviles */
     }
-    
+
     .header-right {
-        width: 100%;
-        padding: 10px 15px;
-        justify-content: space-between;
-        order: 2;
-        position: relative;
-    }
-    
-    .language-selector {
+        padding: 10px 0;
         margin-right: 0;
-        gap: 8px;
+        justify-content: flex-end; /* Alinea elementos a la derecha dentro de header-right */
+        flex-shrink: 1; /* Permite que se encoja */
     }
-    
-    .language-selector img {
-        width: 20px;
+
+    .language-selector {
+        display: none; /* Oculta las banderas en la cabecera en móviles */
     }
-    
+
     /* === MOSTRAR MENÚ HAMBURGUESA EN MÓVIL === */
     .menu-toggle {
-        display: flex !important;
+        display: flex; /* Muestra el icono de la hamburguesa */
+        margin-left: 15px; /* Espacio entre el selector de idioma (si estuviera) y la hamburguesa */
+        z-index: 1002; /* Asegura que la hamburguesa esté por encima del menú */
     }
-    
-    /* === NAVEGACIÓN MÓVIL === */
+
+    /* === NAVEGACIÓN MÓVIL (DESLIZANTE) === */
     .main-nav {
-        display: none; /* Oculto por defecto */
-        position: absolute;
-        top: 100%;
-        left: 0;
-        width: 100%;
+        position: fixed; /* Fijo en la pantalla */
+        top: 0; /* Desde la parte superior */
+        right: -100%; /* Inicialmente fuera de la pantalla a la derecha */
+        width: 100%; /* Ocupa todo el ancho */
+        height: 100vh; /* Ocupa toda la altura de la ventana */
         background-color: var(--dark-blue);
-        border-top: 1px solid rgba(255, 255, 255, 0.1);
-        z-index: 999;
-        padding: 0;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        transition: right 0.3s ease-in-out; /* Transición suave para el deslizamiento */
+        z-index: 1000; /* Por debajo de la hamburguesa, pero por encima del contenido */
+        overflow-y: auto; /* Permite scroll si hay muchos elementos */
+        padding-top: 80px; /* Espacio para que el menú no quede debajo del header */
+        display: flex; /* Para centrar el contenido verticalmente si es necesario */
+        align-items: center; /* Centra los elementos verticalmente */
+        justify-content: center; /* Centra los elementos horizontalmente */
+        border-top: none; /* Elimina el borde superior que tenía en desktop */
     }
-    
-    /* MOSTRAR navegación cuando está activa */
+
     .main-nav.active {
-        display: block !important;
-        animation: slideDown 0.3s ease;
+        right: 0; /* Mueve el menú a la pantalla */
     }
-    
-    @keyframes slideDown {
-        from {
-            opacity: 0;
-            transform: translateY(-10px);
-        }
-        to {
-            opacity: 1;
-            transform: translateY(0);
-        }
-    }
-    
+
     .main-nav .container {
         padding: 0 15px;
-        max-width: none;
+        max-width: 100%;
     }
-    
+
     .main-nav ul {
-        flex-direction: column !important;
-        align-items: stretch !important;
-        padding: 15px 0;
-        margin-left: 0 !important;
-    }
-    
-    .main-nav li {
-        margin-right: 0;
-        margin-bottom: 0;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    }
-    
-    .main-nav li:last-child {
-        border-bottom: none;
-    }
-    
-    .main-nav a {
-        font-size: 16px;
-        padding: 15px 20px;
-        display: block;
+        flex-direction: column; /* Apila los elementos del menú verticalmente */
+        margin-left: 0; /* Elimina el margen izquierdo para el menú móvil */
         width: 100%;
-        border-radius: 0;
+        text-align: center; /* Centra el texto de los enlaces */
     }
-    
-    .main-nav a:hover {
-        background-color: rgba(255, 255, 255, 0.1);
+
+    .main-nav li {
+        margin: 0 0 20px 0; /* Espacio entre los elementos del menú */
+        width: 100%;
     }
-    
-    /* Línea activa en móvil */
+
+    .main-nav a {
+        font-size: 18px; /* Aumenta el tamaño de la fuente para mejor legibilidad */
+        padding: 10px 0;
+    }
+
+    /* Línea activa en móvil - se puede quitar o redefinir si no se necesita */
     .main-nav li.active a:after {
-        display: none;
+        display: none; /* Oculta la línea activa en móvil si no quieres */
     }
     
     .main-nav li.active a {
-        background-color: rgba(255, 204, 0, 0.1);
-        color: var(--accent-yellow);
+        color: var(--accent-yellow); /* Color de texto para el activo */
     }
-    
+
     /* === LAYOUT PRINCIPAL MÓVIL === */
     main {
         flex-direction: column;
     }
-    
+
     .sidebar {
-        width: 100%;
-        flex-direction: row;
-        height: auto;
-        min-height: auto;
+        /* Oculta completamente la sidebar en móviles para optimizar espacio */
+        display: none; 
     }
-    
-    .sidebar-image {
-        width: 120px;
-        height: 120px;
-        flex-shrink: 0;
-    }
-    
-    .referencias-page .sidebar-image {
-        width: 120px !important;
-        height: 120px !important;
-    }
-    
-    .sidebar-nav {
-        flex-direction: row;
-        padding: 15px;
-        align-items: center;
-        flex: 1;
-    }
-    
-    .sidebar-nav a {
-        margin: 0 10px 0 0;
-        font-size: 12px;
-        padding: 8px 12px;
-    }
-    
+
     .content-area {
-        padding: 20px 15px;
+        padding: 20px; /* Reduce el padding del área de contenido para móviles */
     }
-    
+
     /* === TÍTULOS MÓVILES === */
     .inicio h2,
     .servicios h2,
@@ -1151,459 +1119,115 @@ main {
         font-size: 24px;
         margin-bottom: 15px;
     }
-    
+
     .sobre-nosotros h3,
     .valor-proyecto h3,
+    .metodo-trabajo h3,
+    .sostenibilidad h3,
+    .lista-servicios h3,
+    .other-works h3,
+    .reference-column h3,
     .english-content h3 {
         font-size: 18px;
+        margin-bottom: 10px;
     }
-    
-    .arquitectura-salud h3 {
-        font-size: 20px;
+
+    .intro-text p,
+    .valor-proyecto p,
+    .metodo-trabajo p,
+    .sostenibilidad p,
+    .acustica-servicios p,
+    .english-content p {
+        font-size: 14px;
+        margin-bottom: 15px;
     }
-    
-    /* === SECCIÓN DE SALUD MÓVIL === */
-    .health-section {
-        overflow: visible;
+
+    /* === SECCIONES CON COLUMNAS APILADAS EN MÓVIL === */
+    .service-columns {
+        flex-direction: column;
     }
-    
-    .heart-icon {
-        float: none;
-        width: 100%;
-        margin: 20px 0;
-        text-align: center;
-    }
-    
-    .heart-icon img {
-        width: 60px;
-        height: auto;
-    }
-    
-    .health-text {
+
+    .column {
+        padding: 0;
         margin-bottom: 20px;
     }
-    
-    /* === OPCIONES DE IDIOMA MÓVIL === */
-    .language-options {
-        flex-direction: column;
-        gap: 15px;
-    }
-    
-    .lang-option {
-        margin-bottom: 0;
-    }
-    
-    .lang-option a {
-        padding: 20px 15px;
-    }
-    
-    .lang-option h4 {
-        font-size: 15px;
-    }
-    
-    .lang-option p {
-        font-size: 11px;
-    }
-    
-    /* === FOOTER MÓVIL === */
-    .footer-nav ul {
-        flex-direction: column;
-        align-items: center;
-    }
-    
-    .footer-nav li {
-        margin: 5px 0;
-    }
-    
-    /* === ENLACES LEGALES MÓVIL === */
-    .legal-links {
-        flex-direction: column;
-        align-items: center;
-    }
-    
-    .legal-links a {
-        margin: 5px 0;
-        font-size: 12px;
-    }
-    
-    /* === MENU DE FOOTER MÓVIL === */
-    .footer-menu ul {
-        flex-direction: column;
-    }
-    
-    .footer-menu li {
-        margin: 5px 0;
-    }
-    
-    /* === CTA MÓVIL === */
-    .cta-presupuesto {
-        padding: 15px;
-        margin: 30px 0 15px;
-    }
-    
-    .cta-presupuesto h3 {
-        font-size: 18px;
-    }
-    
-    .cta-presupuesto p {
-        font-size: 14px;
-    }
-    
-    /* === PROBLEMAS DE RUIDO MÓVIL === */
-    .problem h4 {
-        font-size: 15px;
-    }
-    
-    .problem ul {
-        padding-left: 15px;
-    }
-    
-    /* === INFORMACIÓN DE EQUIPO MÓVIL === */
-    .team-text p {
-        font-size: 13px;
-    }
-    
-    .team-text p.bold {
-        font-size: 14px;
-    }
-    
-    .team-photo img {
-        max-width: 120px;
-    }
-}
 
-/* === MÓVILES PEQUEÑOS === */
-@media (max-width: 480px) {
-    .container {
-        padding: 0 10px;
-    }
-    
-    .content-area {
-        padding: 15px 10px;
-    }
-    
-    .logo-img {
-        max-height: 40px;
-    }
-    
-    .logo .tagline {
-        font-size: 10px;
-    }
-    
-    .language-selector img {
-        width: 18px;
-    }
-    
-    .sidebar-image {
-        width: 80px;
-        height: 80px;
-    }
-    
-    .referencias-page .sidebar-image {
-        width: 80px !important;
-        height: 80px !important;
-    }
-    
-    .sidebar-nav a {
-        font-size: 11px;
-        padding: 6px 8px;
-    }
-    
-    .main-nav a {
-        font-size: 14px;
-    }
-    
-    .inicio h2,
-    .servicios h2,
-    .referencias h2 {
-        font-size: 20px;
-    }
-    
-    .sobre-nosotros h3,
-    .valor-proyecto h3 {
-        font-size: 16px;
-    }
-    
-    .arquitectura-salud h3 {
-        font-size: 18px;
-    }
-    
-    .cta-presupuesto h3 {
-        font-size: 16px;
-    }
-    
-    .lang-option h4 {
-        font-size: 14px;
-    }
-    
-    .lang-option p {
-        font-size: 10px;
-    }
-}
-/* ================================================================
- * MENÚ MÓVIL LJUDTOPIA - AGREGAR AL FINAL DE style.css
- * ================================================================*/
-
-/* === BOTÓN HAMBURGUESA === */
-.menu-toggle {
-    display: none;
-    flex-direction: column;
-    justify-content: space-between;
-    width: 30px;
-    height: 21px;
-    cursor: pointer;
-    z-index: 1000;
-}
-
-.menu-toggle span {
-    height: 3px;
-    width: 100%;
-    background-color: #fff;
-    border-radius: 3px;
-    transition: all 0.3s ease;
-    display: block;
-}
-
-/* === ANIMACIÓN HAMBURGUESA === */
-.menu-toggle.active span:nth-child(1) {
-    transform: rotate(45deg) translate(5px, 5px);
-}
-
-.menu-toggle.active span:nth-child(2) {
-    opacity: 0;
-}
-
-.menu-toggle.active span:nth-child(3) {
-    transform: rotate(-45deg) translate(7px, -6px);
-}
-
-/* ================================================================
- * RESPONSIVE MÓVIL - OVERRIDES CRÍTICOS
- * ================================================================*/
-@media (max-width: 768px) {
-    
-    /* === MOSTRAR HAMBURGUESA === */
-    .menu-toggle {
-        display: flex !important;
-    }
-    
-    /* === MENÚ OCULTO POR DEFECTO === */
-    .main-nav {
-        display: none !important;
-        position: absolute;
-        top: 100%;
-        left: 0;
-        width: 100%;
-        background-color: var(--dark-blue);
-        z-index: 999;
-        padding: 0;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-    }
-    
-    /* === MENÚ VISIBLE CUANDO ACTIVO === */
-    .main-nav.active {
-        display: block !important;
-        animation: slideDown 0.3s ease-out;
-    }
-    
-    @keyframes slideDown {
-        from {
-            opacity: 0;
-            transform: translateY(-20px);
-        }
-        to {
-            opacity: 1;
-            transform: translateY(0);
-        }
-    }
-    
-    /* === NAVEGACIÓN VERTICAL === */
-    .main-nav ul {
-        flex-direction: column !important;
-        margin-left: 0 !important;
-        padding: 0;
-        margin: 0;
-    }
-    
-    .main-nav li {
-        margin-right: 0 !important;
-        margin-bottom: 0;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        width: 100%;
-    }
-    
-    .main-nav li:last-child {
-        border-bottom: none;
-    }
-    
-    .main-nav a {
-        padding: 15px 20px !important;
-        display: block;
-        width: 100%;
-        font-size: 16px !important;
-        text-align: left;
-    }
-    
-    .main-nav a:hover {
-        background-color: rgba(255, 255, 255, 0.1);
-    }
-    
-    .main-nav li.active a {
-        background-color: rgba(255, 204, 0, 0.2);
-        color: var(--accent-yellow);
-    }
-    
-    /* === HEADER MÓVIL === */
-    .site-header .container {
-        flex-direction: column !important;
-        align-items: stretch;
-    }
-    
-    .logo {
-        width: 100% !important;
-        border-right: none;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    }
-    
-    .header-right {
-        width: 100%;
-        padding: 10px 15px;
-        justify-content: space-between;
-    }
-    
-    .language-selector {
-        margin-right: 0;
-        gap: 8px;
-    }
-    
-    .language-selector img {
-        width: 20px;
-    }
-    
-    /* === LAYOUT MÓVIL === */
-    main {
-        flex-direction: column;
-    }
-    
-    .sidebar {
-        width: 100%;
-        flex-direction: row;
-        height: auto;
-        min-height: auto;
-    }
-    
-    .sidebar-image {
-        width: 120px;
-        height: 120px;
-        flex-shrink: 0;
-    }
-    
-    .sidebar-nav {
-        flex-direction: row;
-        padding: 15px;
-        align-items: center;
-        flex: 1;
-    }
-    
-    .sidebar-nav a {
-        margin: 0 10px 0 0;
-        font-size: 12px;
-        padding: 8px 12px;
-    }
-    
-    .content-area {
-        padding: 20px 15px;
-    }
-    
-    /* === TÍTULOS MÓVILES === */
-    .inicio h2,
-    .servicios h2,
-    .referencias h2 {
-        font-size: 24px;
-    }
-    
-    .sobre-nosotros h3,
-    .valor-proyecto h3 {
-        font-size: 18px;
-    }
-    
-    /* === SECCIÓN SALUD MÓVIL === */
-    .heart-icon {
-        float: none !important;
-        width: 100% !important;
-        margin: 20px 0 !important;
-        text-align: center;
-    }
-    
-    .heart-icon img {
-        width: 60px !important;
-        height: auto;
-    }
-    
-    /* === OPCIONES IDIOMA MÓVIL === */
-    .language-options {
-        flex-direction: column;
-        gap: 15px;
-    }
-    
-    .lang-option a {
-        padding: 20px 15px;
-    }
-    
-    /* === CTA MÓVIL === */
-    .cta-presupuesto {
-        padding: 15px;
-        margin: 30px 0 15px;
-    }
-    
-    .cta-presupuesto h3 {
-        font-size: 18px;
-    }
-    
-    /* === TEAM INFO MÓVIL === */
     .team-info {
         flex-direction: column;
     }
-    
+
     .team-text {
         padding-right: 0;
-        margin-bottom: 20px;
+        margin-bottom: 15px;
     }
-    
-    .team-photo img {
-        max-width: 120px;
+
+    .team-photo {
+        margin-top: 15px;
+    }
+
+    .language-options {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .lang-option a {
+        padding: 15px;
+    }
+
+    .cta-presupuesto {
+        padding: 15px;
+    }
+
+    .cta-presupuesto h3 {
+        font-size: 18px;
+    }
+
+    /* Footer ajustes */
+    .site-footer .container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .footer-nav ul {
+        flex-direction: column;
+        margin-bottom: 15px;
+    }
+
+    .footer-nav li {
+        margin: 0 0 10px 0;
+    }
+
+    .contact-info {
+        margin-bottom: 15px;
+    }
+
+    .legal-links {
+        flex-direction: column;
+    }
+
+    .legal-links a {
+        margin-bottom: 8px;
+    }
+
+    /* Specific adjustments for referencias.html sidebar on mobile */
+    .referencias-page .sidebar {
+        display: none !important; /* Asegura que la sidebar de referencias se oculta */
     }
 }
 
-/* ================================================================
- * MÓVILES PEQUEÑOS
+/* ================================================================\
+ * MÓVILES PEQUEÑOS (hasta 480px)
  * ================================================================*/
 @media (max-width: 480px) {
     .logo-img {
-        max-height: 40px;
+        max-height: 45px; /* Reduce el tamaño del logo aún más en pantallas muy pequeñas */
     }
-    
-    .logo .tagline {
-        font-size: 10px;
-    }
-    
-    .sidebar-image {
-        width: 80px;
-        height: 80px;
-    }
-    
+
     .main-nav a {
-        font-size: 14px !important;
-        padding: 12px 15px !important;
+        font-size: 16px; /* Ajusta el tamaño de fuente para pantallas muy pequeñas */
     }
-    
+
     .content-area {
-        padding: 15px 10px;
-    }
-    
-    .inicio h2,
-    .servicios h2,
-    .referencias h2 {
-        font-size: 20px;
+        padding: 15px; /* Más reducción de padding */
     }
 }
