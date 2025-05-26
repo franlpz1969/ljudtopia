@@ -1340,3 +1340,270 @@ main {
         font-size: 10px;
     }
 }
+/* ================================================================
+ * MENÚ MÓVIL LJUDTOPIA - AGREGAR AL FINAL DE style.css
+ * ================================================================*/
+
+/* === BOTÓN HAMBURGUESA === */
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 21px;
+    cursor: pointer;
+    z-index: 1000;
+}
+
+.menu-toggle span {
+    height: 3px;
+    width: 100%;
+    background-color: #fff;
+    border-radius: 3px;
+    transition: all 0.3s ease;
+    display: block;
+}
+
+/* === ANIMACIÓN HAMBURGUESA === */
+.menu-toggle.active span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+
+.menu-toggle.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.menu-toggle.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -6px);
+}
+
+/* ================================================================
+ * RESPONSIVE MÓVIL - OVERRIDES CRÍTICOS
+ * ================================================================*/
+@media (max-width: 768px) {
+    
+    /* === MOSTRAR HAMBURGUESA === */
+    .menu-toggle {
+        display: flex !important;
+    }
+    
+    /* === MENÚ OCULTO POR DEFECTO === */
+    .main-nav {
+        display: none !important;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: var(--dark-blue);
+        z-index: 999;
+        padding: 0;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    }
+    
+    /* === MENÚ VISIBLE CUANDO ACTIVO === */
+    .main-nav.active {
+        display: block !important;
+        animation: slideDown 0.3s ease-out;
+    }
+    
+    @keyframes slideDown {
+        from {
+            opacity: 0;
+            transform: translateY(-20px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+    
+    /* === NAVEGACIÓN VERTICAL === */
+    .main-nav ul {
+        flex-direction: column !important;
+        margin-left: 0 !important;
+        padding: 0;
+        margin: 0;
+    }
+    
+    .main-nav li {
+        margin-right: 0 !important;
+        margin-bottom: 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        width: 100%;
+    }
+    
+    .main-nav li:last-child {
+        border-bottom: none;
+    }
+    
+    .main-nav a {
+        padding: 15px 20px !important;
+        display: block;
+        width: 100%;
+        font-size: 16px !important;
+        text-align: left;
+    }
+    
+    .main-nav a:hover {
+        background-color: rgba(255, 255, 255, 0.1);
+    }
+    
+    .main-nav li.active a {
+        background-color: rgba(255, 204, 0, 0.2);
+        color: var(--accent-yellow);
+    }
+    
+    /* === HEADER MÓVIL === */
+    .site-header .container {
+        flex-direction: column !important;
+        align-items: stretch;
+    }
+    
+    .logo {
+        width: 100% !important;
+        border-right: none;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    
+    .header-right {
+        width: 100%;
+        padding: 10px 15px;
+        justify-content: space-between;
+    }
+    
+    .language-selector {
+        margin-right: 0;
+        gap: 8px;
+    }
+    
+    .language-selector img {
+        width: 20px;
+    }
+    
+    /* === LAYOUT MÓVIL === */
+    main {
+        flex-direction: column;
+    }
+    
+    .sidebar {
+        width: 100%;
+        flex-direction: row;
+        height: auto;
+        min-height: auto;
+    }
+    
+    .sidebar-image {
+        width: 120px;
+        height: 120px;
+        flex-shrink: 0;
+    }
+    
+    .sidebar-nav {
+        flex-direction: row;
+        padding: 15px;
+        align-items: center;
+        flex: 1;
+    }
+    
+    .sidebar-nav a {
+        margin: 0 10px 0 0;
+        font-size: 12px;
+        padding: 8px 12px;
+    }
+    
+    .content-area {
+        padding: 20px 15px;
+    }
+    
+    /* === TÍTULOS MÓVILES === */
+    .inicio h2,
+    .servicios h2,
+    .referencias h2 {
+        font-size: 24px;
+    }
+    
+    .sobre-nosotros h3,
+    .valor-proyecto h3 {
+        font-size: 18px;
+    }
+    
+    /* === SECCIÓN SALUD MÓVIL === */
+    .heart-icon {
+        float: none !important;
+        width: 100% !important;
+        margin: 20px 0 !important;
+        text-align: center;
+    }
+    
+    .heart-icon img {
+        width: 60px !important;
+        height: auto;
+    }
+    
+    /* === OPCIONES IDIOMA MÓVIL === */
+    .language-options {
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .lang-option a {
+        padding: 20px 15px;
+    }
+    
+    /* === CTA MÓVIL === */
+    .cta-presupuesto {
+        padding: 15px;
+        margin: 30px 0 15px;
+    }
+    
+    .cta-presupuesto h3 {
+        font-size: 18px;
+    }
+    
+    /* === TEAM INFO MÓVIL === */
+    .team-info {
+        flex-direction: column;
+    }
+    
+    .team-text {
+        padding-right: 0;
+        margin-bottom: 20px;
+    }
+    
+    .team-photo img {
+        max-width: 120px;
+    }
+}
+
+/* ================================================================
+ * MÓVILES PEQUEÑOS
+ * ================================================================*/
+@media (max-width: 480px) {
+    .logo-img {
+        max-height: 40px;
+    }
+    
+    .logo .tagline {
+        font-size: 10px;
+    }
+    
+    .sidebar-image {
+        width: 80px;
+        height: 80px;
+    }
+    
+    .main-nav a {
+        font-size: 14px !important;
+        padding: 12px 15px !important;
+    }
+    
+    .content-area {
+        padding: 15px 10px;
+    }
+    
+    .inicio h2,
+    .servicios h2,
+    .referencias h2 {
+        font-size: 20px;
+    }
+}

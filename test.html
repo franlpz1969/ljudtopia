@@ -1,0 +1,793 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TEST - Menú Móvil LJUDTOPIA</title>
+    <style>
+        /* ESTILOS BASE */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #fff;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        /* HEADER */
+        .site-header {
+            background-color: #1a2a3a;
+            padding: 0;
+            position: relative;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .site-header .container {
+            display: flex;
+            justify-content: flex-start;
+            align-items: stretch;
+            flex-wrap: nowrap;
+            padding: 0;
+            max-width: none;
+            width: 100%;
+        }
+
+        .logo {
+            width: 240px;
+            background-color: #1a2a3a;
+            padding: 15px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            border-right: 1px solid rgba(255, 255, 255, 0.1);
+            flex-shrink: 0;
+        }
+
+        .logo a {
+            display: flex;
+            flex-direction: column;
+            color: #fff;
+            text-decoration: none;
+            align-items: center;
+            width: 100%;
+        }
+
+        .logo-img {
+            max-height: 60px;
+            width: 60px;
+            background: #666;
+            margin-bottom: 8px;
+            border-radius: 5px;
+        }
+
+        .tagline {
+            font-size: 12px;
+            color: rgba(255, 255, 255, 0.8);
+            letter-spacing: 1px;
+            text-align: center;
+            margin-top: 5px;
+        }
+
+        .header-right {
+            flex: 1;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            padding: 15px 20px;
+            background-color: #1a2a3a;
+        }
+
+        .language-selector {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-right: 20px;
+        }
+
+        .language-selector a {
+            opacity: 0.7;
+            transition: opacity 0.3s ease;
+            display: block;
+        }
+
+        .language-selector a:hover,
+        .language-selector a.active {
+            opacity: 1;
+        }
+
+        .flag {
+            width: 24px;
+            height: 18px;
+            background: #666;
+            border-radius: 2px;
+        }
+
+        /* NAVEGACIÓN DESKTOP */
+        .main-nav {
+            background-color: #1a2a3a;
+            padding: 10px 0;
+            width: 100%;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .main-nav .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        .main-nav ul {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            flex-wrap: wrap;
+            margin-left: 240px;
+            list-style: none;
+        }
+
+        .main-nav li {
+            margin-right: 30px;
+        }
+
+        .main-nav a {
+            color: #fff;
+            font-size: 14px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            padding: 5px 0;
+            position: relative;
+            display: block;
+            text-decoration: none;
+        }
+
+        .main-nav a span {
+            font-size: 12px;
+            opacity: 0.7;
+            margin-left: 5px;
+        }
+
+        .main-nav a:hover,
+        .main-nav li.active a {
+            color: #ffcc00;
+        }
+
+        .main-nav li.active a:after {
+            content: '';
+            position: absolute;
+            bottom: -3px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: #ffcc00;
+        }
+
+        /* CONTENIDO PRINCIPAL */
+        main {
+            display: flex;
+            min-height: calc(100vh - 150px);
+        }
+
+        .sidebar {
+            width: 240px;
+            background-color: #1a2a3a;
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            min-height: calc(100vh - 150px);
+            flex-shrink: 0;
+        }
+
+        .sidebar-image {
+            height: 200px;
+            background: #555;
+        }
+
+        .sidebar-nav {
+            padding: 20px 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            flex-shrink: 0;
+            background-color: #1a2a3a;
+        }
+
+        .sidebar-nav a {
+            color: #fff;
+            padding: 10px 15px;
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 14px;
+            letter-spacing: 1px;
+            margin-bottom: 5px;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .sidebar-nav a:hover,
+        .sidebar-nav a.active {
+            color: #ffcc00;
+        }
+
+        .content-area {
+            flex: 1;
+            padding: 40px;
+            background-color: #fff;
+            min-width: 0;
+        }
+
+        h2 {
+            font-size: 28px;
+            margin-bottom: 20px;
+            color: #1a2a3a;
+            border-bottom: 2px solid #1a2a3a;
+            padding-bottom: 10px;
+        }
+
+        .test-info {
+            background: #f0f8ff;
+            border: 2px solid #007bff;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+
+        .test-info h3 {
+            color: #007bff;
+            margin-bottom: 15px;
+        }
+
+        .test-buttons {
+            margin: 20px 0;
+        }
+
+        .test-buttons button {
+            background: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            margin: 5px;
+            font-size: 14px;
+        }
+
+        .test-buttons button:hover {
+            background: #0056b3;
+        }
+
+        /* ==================================================
+         * MENÚ MÓVIL - ESTILOS CRÍTICOS
+         * ==================================================*/
+
+        /* 1. BOTÓN HAMBURGUESA - Oculto por defecto en desktop */
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 30px;
+            height: 21px;
+            cursor: pointer;
+            z-index: 1000;
+            background: transparent;
+            border: none;
+            padding: 0;
+        }
+
+        .menu-toggle span {
+            height: 3px;
+            width: 100%;
+            background-color: #fff;
+            border-radius: 3px;
+            transition: all 0.3s ease;
+            display: block;
+        }
+
+        /* 2. ANIMACIÓN HAMBURGUESA */
+        .menu-toggle.active span:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+
+        .menu-toggle.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .menu-toggle.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(7px, -6px);
+        }
+
+        /* ==================================================
+         * RESPONSIVE MÓVIL
+         * ==================================================*/
+        @media (max-width: 768px) {
+            
+            /* 3. MOSTRAR HAMBURGUESA EN MÓVIL */
+            .menu-toggle {
+                display: flex !important;
+            }
+            
+            /* 4. OCULTAR MENÚ POR DEFECTO EN MÓVIL */
+            .main-nav {
+                display: none !important;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background-color: #1a2a3a;
+                z-index: 999;
+                padding: 0;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+            }
+            
+            /* 5. MOSTRAR MENÚ CUANDO ESTÁ ACTIVO */
+            .main-nav.active {
+                display: block !important;
+                animation: slideDown 0.3s ease-out;
+            }
+            
+            @keyframes slideDown {
+                from {
+                    opacity: 0;
+                    transform: translateY(-20px);
+                }
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+            
+            /* 6. MENÚ VERTICAL EN MÓVIL */
+            .main-nav ul {
+                flex-direction: column !important;
+                margin-left: 0 !important;
+                padding: 0;
+                margin: 0;
+            }
+            
+            .main-nav li {
+                margin-right: 0 !important;
+                margin-bottom: 0;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+                width: 100%;
+            }
+            
+            .main-nav li:last-child {
+                border-bottom: none;
+            }
+            
+            .main-nav a {
+                padding: 15px 20px !important;
+                display: block;
+                width: 100%;
+                font-size: 16px !important;
+                text-align: left;
+                border-radius: 0;
+            }
+            
+            .main-nav a:hover,
+            .main-nav a:focus {
+                background-color: rgba(255, 255, 255, 0.1);
+            }
+            
+            .main-nav li.active a {
+                background-color: rgba(255, 204, 0, 0.2);
+                color: #ffcc00;
+            }
+            
+            /* 7. AJUSTAR HEADER PARA MÓVIL */
+            .site-header .container {
+                flex-direction: column;
+                align-items: stretch;
+                position: relative;
+            }
+            
+            .logo {
+                width: 100% !important;
+                border-right: none;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+                order: 1;
+            }
+            
+            .header-right {
+                width: 100%;
+                padding: 10px 15px;
+                justify-content: space-between;
+                order: 2;
+            }
+            
+            .language-selector {
+                margin-right: 0;
+            }
+            
+            /* 8. AJUSTAR LAYOUT PRINCIPAL */
+            main {
+                flex-direction: column;
+            }
+            
+            .sidebar {
+                width: 100%;
+                flex-direction: row;
+                height: auto;
+                min-height: auto;
+            }
+            
+            .sidebar-image {
+                width: 120px;
+                height: 120px;
+                flex-shrink: 0;
+            }
+            
+            .sidebar-nav {
+                flex-direction: row;
+                padding: 15px;
+                align-items: center;
+                flex: 1;
+            }
+            
+            .sidebar-nav a {
+                margin: 0 10px 0 0;
+                font-size: 12px;
+                padding: 8px 12px;
+            }
+            
+            .content-area {
+                padding: 20px 15px;
+            }
+
+            h2 {
+                font-size: 24px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .logo-img {
+                max-height: 40px;
+                width: 40px;
+            }
+            
+            .sidebar-image {
+                width: 80px;
+                height: 80px;
+            }
+            
+            .main-nav a {
+                font-size: 14px !important;
+                padding: 12px 15px !important;
+            }
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header Section -->
+    <header class="site-header">
+        <div class="container">
+            <!-- Logo Section -->
+            <div class="logo">
+                <a href="index.html">
+                    <div class="logo-img"></div>
+                    <p class="tagline">ARQUITECTURA · BIENESTAR · SALUD</p>
+                </a>
+            </div>
+            
+            <!-- Header Right Section -->
+            <div class="header-right">
+                <!-- Language Selector -->
+                <div class="language-selector">
+                    <a href="#" class="active"><div class="flag"></div></a>
+                    <a href="#"><div class="flag"></div></a>
+                    <a href="#"><div class="flag"></div></a>
+                    <a href="#"><div class="flag"></div></a>
+                </div>
+                
+                <!-- Mobile Menu Toggle -->
+                <div class="menu-toggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+    </header>
+    
+    <!-- Navigation Menu -->
+    <nav class="main-nav">
+        <div class="container">
+            <ul>
+                <li class="active"><a href="index.html">INICIO</a></li>
+                <li><a href="servicios.html">SERVICIOS</a></li>
+                <li><a href="referencias.html">REFERENCIAS</a></li>
+                <li><a href="tjänster.html">TJÄNSTER<span>(SVENSKA)</span></a></li>
+                <li><a href="services.html">SERVICES<span>(ENGLISH)</span></a></li>
+            </ul>
+        </div>
+    </nav>
+    
+    <!-- Main Content -->
+    <main>
+        <div class="sidebar">
+            <div class="sidebar-image"></div>
+            <div class="sidebar-nav">
+                <a href="index.html" class="active">INICIO</a>
+            </div>
+        </div>
+        
+        <div class="content-area">
+            <section class="inicio">
+                <h2>TEST MENÚ MÓVIL</h2>
+                
+                <div class="test-info">
+                    <h3>🧪 Instrucciones de Test</h3>
+                    <p><strong>Desktop (>768px):</strong> El menú se ve horizontal arriba</p>
+                    <p><strong>Móvil (≤768px):</strong> Aparece el botón hamburguesa (3 líneas)</p>
+                    <p><strong>Click hamburguesa:</strong> Se despliega el menú vertical</p>
+                    <p><strong>Click fuera o en enlace:</strong> Se cierra automáticamente</p>
+                </div>
+
+                <div class="test-buttons">
+                    <button onclick="testMenu()">🧪 Test Menú</button>
+                    <button onclick="debugMenu()">🔍 Debug Info</button>
+                    <button onclick="toggleSize()">📱 Simular Móvil/Desktop</button>
+                    <button onclick="location.reload()">🔄 Recargar</button>
+                </div>
+
+                <div class="test-info">
+                    <h3>🎯 Estado Actual</h3>
+                    <p id="status">Inicializando...</p>
+                    <p id="size-info">Calculando tamaño...</p>
+                </div>
+
+                <div class="test-info">
+                    <h3>📋 Log de Eventos</h3>
+                    <div id="log" style="background: #000; color: #0f0; padding: 15px; font-family: monospace; height: 200px; overflow-y: auto; border-radius: 4px;"></div>
+                </div>
+            </section>
+        </div>
+    </main>
+    
+    <script>
+        /**
+         * JAVASCRIPT ULTRA SIMPLE - MENÚ MÓVIL GARANTIZADO
+         */
+
+        // VARIABLES GLOBALES
+        let menuToggle = null;
+        let mainNav = null;
+        let logDiv = null;
+        let statusDiv = null;
+        let sizeDiv = null;
+        let eventLog = [];
+
+        // FUNCIÓN DE LOG
+        function log(message) {
+            const timestamp = new Date().toLocaleTimeString();
+            const logMessage = `[${timestamp}] ${message}`;
+            eventLog.push(logMessage);
+            console.log(logMessage);
+            
+            if (logDiv) {
+                logDiv.innerHTML = eventLog.slice(-10).join('\n');
+                logDiv.scrollTop = logDiv.scrollHeight;
+            }
+        }
+
+        // ACTUALIZAR STATUS
+        function updateStatus() {
+            if (statusDiv) {
+                const menuFound = !!menuToggle;
+                const navFound = !!mainNav;
+                const menuActive = menuToggle ? menuToggle.classList.contains('active') : false;
+                const navActive = mainNav ? mainNav.classList.contains('active') : false;
+                
+                statusDiv.innerHTML = `
+                    Menu Toggle: ${menuFound ? '✅' : '❌'} |
+                    Main Nav: ${navFound ? '✅' : '❌'} |
+                    Menu Activo: ${menuActive ? '🟢' : '🔴'} |
+                    Nav Activo: ${navActive ? '🟢' : '🔴'}
+                `;
+            }
+            
+            if (sizeDiv) {
+                const width = window.innerWidth;
+                const isMobile = width <= 768;
+                sizeDiv.innerHTML = `Ancho: ${width}px | Modo: ${isMobile ? '📱 MÓVIL' : '🖥️ DESKTOP'}`;
+            }
+        }
+
+        // ESPERAR A QUE CARGUE LA PÁGINA
+        document.addEventListener('DOMContentLoaded', function() {
+            
+            log('🚀 JavaScript iniciado');
+            
+            // ENCONTRAR ELEMENTOS DE UI
+            logDiv = document.getElementById('log');
+            statusDiv = document.getElementById('status');
+            sizeDiv = document.getElementById('size-info');
+            
+            // BUSCAR ELEMENTOS DEL MENÚ
+            let attempts = 0;
+            const maxAttempts = 50;
+            
+            function findElements() {
+                attempts++;
+                log(`🔍 Intento ${attempts} de encontrar elementos...`);
+                
+                menuToggle = document.querySelector('.menu-toggle');
+                mainNav = document.querySelector('.main-nav');
+                
+                updateStatus();
+                
+                if (menuToggle && mainNav) {
+                    log('✅ Elementos encontrados, iniciando menú móvil');
+                    initMobileMenu();
+                    return true;
+                } else {
+                    log(`❌ Elementos no encontrados. Reintentando...`);
+                    if (attempts < maxAttempts) {
+                        setTimeout(findElements, 100);
+                    } else {
+                        log('❌ FALLO: No se pudieron encontrar los elementos');
+                        log('🔍 Elementos disponibles en la página:');
+                        log(`   - Divs: ${document.querySelectorAll('div').length}`);
+                        log(`   - Navs: ${document.querySelectorAll('nav').length}`);
+                        log(`   - Classes con "menu": ${document.querySelectorAll('[class*="menu"]').length}`);
+                        log(`   - Classes con "nav": ${document.querySelectorAll('[class*="nav"]').length}`);
+                    }
+                    return false;
+                }
+            }
+            
+            // INICIALIZAR MENÚ MÓVIL
+            function initMobileMenu() {
+                log('🎉 Inicializando menú móvil...');
+                
+                // 1. CLICK EN BOTÓN HAMBURGUESA
+                menuToggle.addEventListener('click', function(event) {
+                    event.preventDefault();
+                    event.stopPropagation();
+                    
+                    log('🍔 Hamburguesa clickeada');
+                    
+                    const isActive = menuToggle.classList.contains('active');
+                    
+                    if (isActive) {
+                        // CERRAR menú
+                        menuToggle.classList.remove('active');
+                        mainNav.classList.remove('active');
+                        document.body.style.overflow = '';
+                        log('📱 Menú CERRADO');
+                    } else {
+                        // ABRIR menú
+                        menuToggle.classList.add('active');
+                        mainNav.classList.add('active');
+                        document.body.style.overflow = 'hidden';
+                        log('📱 Menú ABIERTO');
+                    }
+                    
+                    updateStatus();
+                });
+                
+                // 2. CERRAR AL HACER CLICK FUERA
+                document.addEventListener('click', function(event) {
+                    if (mainNav.classList.contains('active')) {
+                        if (!event.target.closest('.main-nav') && !event.target.closest('.menu-toggle')) {
+                            log('👆 Click fuera - cerrando menú');
+                            menuToggle.classList.remove('active');
+                            mainNav.classList.remove('active');
+                            document.body.style.overflow = '';
+                            updateStatus();
+                        }
+                    }
+                });
+                
+                // 3. CERRAR AL HACER CLICK EN ENLACES (SOLO MÓVIL)
+                const navLinks = document.querySelectorAll('.main-nav a');
+                log(`🔗 Configurando ${navLinks.length} enlaces del menú`);
+                
+                navLinks.forEach(function(link, index) {
+                    link.addEventListener('click', function(e) {
+                        log(`🔗 Click en enlace ${index + 1}`);
+                        
+                        if (window.innerWidth <= 768) {
+                            log('📱 Cerrando menú por click en enlace (móvil)');
+                            menuToggle.classList.remove('active');
+                            mainNav.classList.remove('active');
+                            document.body.style.overflow = '';
+                            updateStatus();
+                        }
+                        
+                        // Prevenir navegación en la página de test
+                        e.preventDefault();
+                    });
+                });
+                
+                // 4. RESETEAR EN DESKTOP
+                window.addEventListener('resize', function() {
+                    const width = window.innerWidth;
+                    log(`📏 Resize: ${width}px`);
+                    updateStatus();
+                    
+                    if (width > 768) {
+                        log('🖥️ Desktop mode - reseteando menú');
+                        menuToggle.classList.remove('active');
+                        mainNav.classList.remove('active');
+                        document.body.style.overflow = '';
+                        updateStatus();
+                    }
+                });
+                
+                log('✅ Menú móvil configurado correctamente');
+                
+                // AUTO-TEST en móvil
+                if (window.innerWidth <= 768) {
+                    log('📱 Detectado móvil - ejecutando auto-test en 2 segundos');
+                    setTimeout(function() {
+                        log('🤖 AUTO-TEST: Abriendo menú automáticamente');
+                        menuToggle.click();
+                        setTimeout(function() {
+                            log('🤖 AUTO-TEST: Cerrando menú automáticamente');
+                            menuToggle.click();
+                        }, 1500);
+                    }, 2000);
+                }
+            }
+            
+            // FUNCIONES GLOBALES PARA LOS BOTONES
+            window.testMenu = function() {
+                log('🧪 TEST: Simulando click en menú');
+                if (menuToggle) {
+                    menuToggle.click();
+                } else {
+                    log('❌ No se puede probar: menu-toggle no encontrado');
+                }
+            };
+            
+            window.debugMenu = function() {
+                log('🐛 === DEBUG INFO ===');
+                log(`Window width: ${window.innerWidth}`);
+                log(`Menu toggle found: ${!!menuToggle}`);
+                log(`Main nav found: ${!!mainNav}`);
+                log(`Menu toggle active: ${menuToggle ? menuToggle.classList.contains('active') : 'N/A'}`);
+                log(`Main nav active: ${mainNav ? mainNav.classList.contains('active') : 'N/A'}`);
+                log(`Body overflow: ${document.body.style.overflow || 'default'}`);
+                log('==================');
+                updateStatus();
+            };
+            
+            window.toggleSize = function() {
+                const currentWidth = window.innerWidth;
+                if (currentWidth > 768) {
+                    // Simular móvil
+                    document.body.style.width = '400px';
+                    log('📱 Simulando vista móvil (400px)');
+                } else {
+                    // Volver a desktop
+                    document.body.style.width = '';
+                    log('🖥️ Volviendo a vista desktop');
+                }
+                window.dispatchEvent(new Event('resize'));
+                setTimeout(updateStatus, 100);
+            };
+            
+            // EMPEZAR LA BÚSQUEDA
+            updateStatus();
+            findElements();
+            
+            log('🏁 JavaScript setup completado');
+        });
+    </script>
+</body>
+</html>
