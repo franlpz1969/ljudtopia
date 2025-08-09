@@ -1,165 +1,102 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LJUDTOPIA - Arquitectura · Bienestar · Salud</title>
-    <link rel="stylesheet" href="css/style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ljudtopia – Próximamente</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --primary-color: #0a3d62; /* Cambiar al color principal del logo */
+    --accent-color: #f39c12; /* Cambiar al color secundario del logo */
+    --text-light: #ffffff;
+  }
+
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    font-family: 'Poppins', sans-serif;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: url('fondo.jpg') center/cover no-repeat fixed;
+    position: relative;
+    overflow: hidden;
+    color: var(--text-light);
+  }
+
+  body::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.55);
+    backdrop-filter: blur(4px);
+    z-index: 0;
+  }
+
+  .content {
+    position: relative;
+    text-align: center;
+    z-index: 1;
+    max-width: 600px;
+    padding: 20px;
+    animation: fadeIn 1.2s ease-in-out;
+  }
+
+  h1 {
+    font-size: 3em;
+    font-weight: 600;
+    color: var(--accent-color);
+    margin-bottom: 0.4em;
+  }
+
+  p {
+    font-size: 1.2em;
+    font-weight: 300;
+    margin-bottom: 1.5em;
+  }
+
+  .btn {
+    background: var(--primary-color);
+    color: var(--text-light);
+    padding: 12px 28px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-size: 1em;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    display: inline-block;
+  }
+
+  .btn:hover {
+    background: var(--accent-color);
+    transform: scale(1.05);
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  footer {
+    position: absolute;
+    bottom: 15px;
+    font-size: 0.9em;
+    color: rgba(255,255,255,0.6);
+  }
+</style>
 </head>
 <body>
-    <!-- Header Section Modificado -->
-    <header class="site-header">
-        <div class="container">
-            <!-- Logo Section - Mismo ancho que sidebar -->
-            <div class="logo">
-                <a href="index.html">
-                    <img src="img/Logo.jpeg" alt="LJUDTOPIA Logo" class="logo-img">
-                    <p class="tagline">ARQUITECTURA · BIENESTAR · SALUD</p>
-                </a>
-            </div>
-            
-            <!-- Header Right Section -->
-            <div class="header-right">
-                <!-- Language Selector -->
-                <div class="language-selector">
-                    <a href="index.html" class="active"><img src="img/flag-spain.png" alt="Español"></a>
-                    <a href="tjänster.html"><img src="img/flag-sweden.png" alt="Svenska"></a>
-                    <a href="services.html"><img src="img/flag-uk.png" alt="English"></a>
-                    <a href="deutsch.html"><img src="img/flag-germany.png" alt="Deutsch"></a>
-                </div>
-                
-                <!-- Mobile Menu Toggle -->
-                <div class="menu-toggle">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </div>
-            </div>
-        </div>
-    </header>
-    
-    <!-- Navigation Menu -->
-    <nav class="main-nav">
-        <div class="container">
-            <ul>
-                <li class="active"><a href="index.html">INICIO</a></li>
-                <li><a href="servicios.html">SERVICIOS</a></li>
-                <li><a href="referencias.html">REFERENCIAS</a></li>
-                <li><a href="tjänster.html">TJÄNSTER<span>(SVENSKA)</span></a></li>
-                <li><a href="services.html">SERVICES<span>(ENGLISH)</span></a></li>
-            </ul>
-        </div>
-    </nav>
-    
-    <!-- Main Content -->
-    <main>
-        <div class="sidebar">
-            <!-- Sidebar images -->
-            <div class="sidebar-image">
-                <img src="img/sidebar-1.jpg" alt="Edificio arquitectónico">
-            </div>
-            <div class="sidebar-nav">
-                <a href="index.html" class="active">INICIO</a>
-            </div>
-        </div>
-        
-        <div class="content-area">
-            <!-- Hero section -->
-            <section class="inicio">
-                <h2>INICIO</h2>
-                <div class="sobre-nosotros">
-                    <h3>SOBRE NOSOTROS</h3>
-                    <div class="intro-text">
-                        <p>Somos una oficina de Arquitectura internacional que se dedica a la realización de todo tipo de proyectos arquitectónicos integrales, tanto de obra nueva como de rehabilitación. Especializados en sistemas constructivos avanzados, patología edificatoria y acústica en la edificación, que trabaja bajo los más altos estandares de calidad nacional e internacional para mejorar las condiciones de vida de nuestros clientes, creando ambientes que mejoran la salud de las personas.</p>
-                    </div>
-                    <h3>Expertos en construcción</h3>
-                    <div class="intro-text">
-                        <p>Tenemos una larga trayectoria profesional de más de 25 años en el desarrollo de todo tipo de proyectos ejecutivos de Arquitectura, tanto con sistemas constructivos tradicionales en hormigón, acero, madera, ladrillo, piedra, etc así como con sistemas prefabricados e industrializados, lo cual nos posiciona con una clara ventaja a la hora de prever posibles problemas tanto en el desarrollo como en la ejecución de los mismos, así como en la prevención y la resolución de los complejos problemas derivados de la transmisión del ruido hacia- y en- el interior de viviendas y locales.</p>
-                    </div>
-                    
-                    <!-- Team information -->
-                    <div class="team-info">
-                        <div class="team-text">
-                            <p class="bold">Santiago López Rodríguez</p>
-                            <p>Director y fundador de Ljudtopia.com</p>
-                            <p>Master in Architecture / Arquitecto Superior (UPM-ETSAM, 2003)</p>
-                            <p>Arquitecto, Director de obras, Project Manager, Coordinador de Seguridad y Salud y Proyectista de estructuras edificatorias (konstruktör / builder), en España y Suecia.</p>
-                        </div>
-                        <div class="team-photo">
-                            <img src="img/santiago-lopez.jpg" alt="Santiago López Rodríguez">
-                        </div>
-                    </div>
-                </div>
-
-                
-                <!-- Architecture & Health section -->
-                <div class="arquitectura-salud">
-                    <h3>ARQUITECTURA, ACÚSTICA Y SALUD</h3>
-                    <div class="health-section">
-                        <div class="heart-icon">
-                            <img src="img/casita.jpeg" alt="Salud">
-                        </div>
-                        <div class="health-text">
-                            <p>La Arquitectura nos acompaña durante toda nuestro "dia a dia", yendo más allá del diseño de espacios, influyendo directamente en el bienestar físico y emocional de las personas.</p>
-                            <p>Un entorno bien proyectado, mejora la calidad del aire mediante su circulación controlada, optimiza la luz natural y fomenta la movilidad saludable, reduciendo el estrés y la sensación de agotamiento. En <strong>Ljudtopia</strong>, creamos edificios y espacios que priorizan la salud, integrando materiales sostenibles, tecnologías innovadoras y diseños centrados en el ser humano. Porque creemos que los entornos arquitectónicos deben inspirar, proteger y sanar. Descubre cómo podemos <a href="#">transformar tu proyecto en un aliado para la salud</a>.</p>
-                        </div>
-                    </div>
-                    
-                    <div class="acoustic-section">
-                        <p>El ruido excesivo no sólo molesta, sino que perjudica la salud: aumenta el estrés, altera el sueño y reduce la concentración. <strong>Una buena acústica arquitectónica</strong> es clave para crear espacios tranquilos y confortables, ya sea en viviendas, oficinas o centros sanitarios. En <strong>Ljudtopia</strong>, integramos soluciones acústicas inteligentes, desde materiales absorbentes hasta diseños que minimizan reverberaciones, para transformar entornos ruidosos en oasis de calma.</p>
-                        <p>Porque creemos que el silencio bien diseñado mejora la calidad de vida. Descubre cómo optimizamos tus espacios para <strong>cuidar de quienes los habitan</strong>.</p>
-                    </div>
-                </div>
-                
-                <!-- Contact CTA -->
-                <div class="cta-presupuesto">
-                    <h3>PRESUPUESTO A MEDIDA</h3>
-                    <p>Contáctanos hoy mismo en: <a href="mailto:info@ljudtopia.com">info@ljudtopia.com</a> y te facilitamos en el plazo de 24h un presupuesto para tu idea de proyecto o una orientación gratuita para el problema que se te haya presentado.</p>
-                </div>
-                
-                <!-- Language help section moved here -->
-                <div class="language-help">
-                    <p>Y SI NO TE SIENTES CÓMODO HABLANDO EN ESPAÑOL. CONTACTA CON NOSOTROS Y TE AYUDAMOS CON TU PROYECTO EN TU IDIOMA:</p>
-                    <div class="language-options">
-                        <div class="lang-option swedish">
-                            <a href="tjänster.html">
-                                <img src="img/flag-sweden.png" alt="Svenska">
-                                <h4>VI KAN HJÄLPA DIG PÅ SVENSKA</h4>
-                                <p>(ACCESO A CONTENIDO ESPECÍFICO EN SUECO)</p>
-                            </a>
-                        </div>
-                        <div class="lang-option english">
-                            <a href="services.html">
-                                <img src="img/flag-uk.png" alt="English">
-                                <h4>WE CAN HELP YOU IN ENGLISH</h4>
-                                <p>(ACCESO A CONTENIDO ESPECÍFICO EN INGLÉS)</p>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </section>
-        </div>
-    </main>
-    
-    <!-- Footer -->
-    <footer class="site-footer">
-        <div class="container">
-            <div class="footer-nav">
-                <ul>
-                    <li><a href="index.html">INICIO</a></li>
-                    <li><a href="servicios.html">SERVICIOS</a></li>
-                    <li><a href="tjänster.html">TJÄNSTER (CONTENIDO EN SUECO)</a></li>
-                    <li><a href="services.html">SERVICES (CONTENIDO EN INGLÉS)</a></li>
-                </ul>
-            </div>
-            <div class="copyright">
-                <p>Copyright LJUDTOPIA.com, 2025</p>
-                <p>All rights reserved.</p>
-            </div>
-        </div>
-    </footer>
-    
-    <script src="js/main.js"></script>
+  <div class="content">
+    <h1>Ljudtopia</h1>
+    <p>Estamos creando algo extraordinario en arquitectura, bienestar y salud.</p>
+    <a href="mailto:contacto@ljudtopia.com" class="btn">Contáctanos</a>
+  </div>
+  <footer>© 2025 Ljudtopia</footer>
 </body>
 </html>
